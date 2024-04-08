@@ -1,0 +1,15 @@
+{
+    "editor.rulers": [
+        80,
+        90,
+        100
+    ],
+    "editor.renderWhitespace": "all",
+    "editor.trimAutoWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "esbonio.sphinx.srcDir": "${workspaceFolder}/source",
+    "esbonio.sphinx.confDir": "${workspaceFolder}/source",
+    "esbonio.sphinx.buildDir": "${workspaceFolder}/build/",
+}

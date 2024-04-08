@@ -1,0 +1,12 @@
+Sphinx==7.1.2
+Pillow
+esbonio
+docutils
+sphinx-prompt
+sphinx-copybutton
+sphinx-notfound-page
+sphinxnotes-strike
+sphinx-cjkspace
+sphinxcontrib-mermaid
+sphinxcontrib-kroki
+sphinx-rtd-theme

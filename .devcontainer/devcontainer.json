@@ -1,0 +1,39 @@
+// For format details, see https://aka.ms/devcontainer.json.
+{
+	"name": "Sphinx",
+
+	//"build": {
+	//	"dockerfile": "Dockerfile",
+	//	"args": {
+	//		"VARIANT": "3-bullseye"
+	//	}
+	//},
+
+	// image
+	"image": "serial115200/devcontainer_sphinx:latest",
+	//"image": "serial115200/devcontainer_sphinx_pdf:latest",
+
+	"customizations": {
+		"vscode": {
+			"settings": {},
+			"extensions": [
+				"eamodio.gitlens",
+				"EditorConfig.EditorConfig",
+				"lextudio.restructuredtext",
+				"ms-azuretools.vscode-docker",
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-vscode.makefile-tools",
+				"ritwickdey.LiveServer",
+				"timonwong.shellcheck",
+				"tintinweb.graphviz-interactive-preview",
+				"trond-snekvik.simple-rst",
+				"twxs.cmake",
+				"zenghongtu.vscode-asciiflow2"
+			]
+		}
+	},
+
+	//Enabling SSH connections over HTTPS
+	"postCreateCommand": "cp /config /home/vscode/.ssh/"
+}
