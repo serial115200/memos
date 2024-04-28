@@ -10,11 +10,14 @@ Welcome to 备忘录's documentation!
    :maxdepth: 2
    :caption: 目录:
 
+   cmake/cmake
    docker/docker
    lang_c/lang_c
    namespace/namespace
    shell/shell
+   ssh/ssh
    tools/tools
+   vscode/vscode
 
 
 Indices and tables

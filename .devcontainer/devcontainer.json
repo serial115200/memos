@@ -19,10 +19,11 @@
 			"extensions": [
 				"eamodio.gitlens",
 				"EditorConfig.EditorConfig",
-				"lextudio.restructuredtext",
 				"ms-azuretools.vscode-docker",
 				"ms-python.python",
 				"ms-python.vscode-pylance",
+				"swyddfa.esbonio",
+				"lextudio.restructuredtext",
 				"ms-vscode.makefile-tools",
 				"ritwickdey.LiveServer",
 				"timonwong.shellcheck",
