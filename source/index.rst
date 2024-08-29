@@ -16,6 +16,7 @@ Welcome to 备忘录's documentation!
    namespace/namespace
    shell/shell
    ssh/ssh
+   sniffer/sniffer
    tools/tools
    vscode/vscode
 

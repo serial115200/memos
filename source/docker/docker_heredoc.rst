@@ -15,6 +15,7 @@ Dockerfile 在 1.3.0 labs 引入了 `HereDoc`_ 功能，用以简化 Dockerfile 
 起始使用 `# syntax=docker/dockerfile:1.3-labs` 宣告启用 `HereDoc`_ 语法：
 
 .. code-block:: shell
+  :emphasize-lines: 1
 
     # syntax=docker/dockerfile:1.3-labs
 
