@@ -67,6 +67,8 @@ Ubuntu 发行版
 `ifconfig` 与 `ifconfig -a` 则会遍历相应的接口，并用以上形式进行呈现。
 
 
+
+
 配置参数
 --------------------------------------------------------------------------------
 
@@ -84,32 +86,32 @@ Ubuntu 发行版
 
         ifconfig eth0 down
 
-配置 IP
+配置网络地址
 
     .. code-block:: bash
 
         ifconfig eth0 192.168.1.1
 
-配置 Netmask
+配置子网掩码
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    ifconfig eth0 192.168.1.1
+        ifconfig eth0 192.168.1.1
 
-配置 MTU
+设置最大传输单元(MTU)
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    ifconfig eth0 mtu 1000
+        ifconfig eth0 mtu 1000
 
-配置 MAC 地址
+配置硬件地址
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    ifconfig eth0 hw ether 00:11:22:33:44:55
+        ifconfig eth0 hw ether 00:11:22:33:44:55
 
 配置 flags
 
-.. code-block:: text
+    .. code-block:: text
 
-    eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500

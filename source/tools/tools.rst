@@ -7,3 +7,4 @@
    tcpdump
    net-tools/ifconfig
    iwconfig
+   iw/iw
