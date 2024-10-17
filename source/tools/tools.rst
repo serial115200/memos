@@ -2,9 +2,17 @@
 ================================================================================
 
 .. toctree::
-   :maxdepth: 1
+    :maxdepth: 1
 
-   tcpdump
-   net-tools/ifconfig
-   iwconfig
-   iw/iw
+    iproute2/iproute2
+    net-tools/ifconfig
+    iwconfig
+    iw/iw
+
+    screen
+
+    socat
+
+
+    sed
+    hex_bin

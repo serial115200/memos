@@ -46,3 +46,6 @@ html_theme = "sphinx_rtd_theme"
 html_static_path = ['_static']
 
 copybutton_prompt_text = "~$ "
+
+# https://github.com/numpy/numpydoc/issues/69
+numpydoc_show_class_members = False

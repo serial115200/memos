@@ -1,0 +1,15 @@
+# 不完整配置
+version: '3'
+services:
+  compiler:
+    image: ubuntu
+    user: $UID:$GID
+    working_dir: $HOME
+    volumes:
+      - /etc/group:/etc/group:ro
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/shadow:/etc/shadow:ro
+      - /etc/shadow:/etc/shadow:ro
+    tty: true
+    stdin_open: true
+    command: bash

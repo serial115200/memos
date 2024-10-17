@@ -1,22 +1,45 @@
 iw monitor 接口
 ================================================================================
 
+如果配置失败或者被重置，建议先确认一下信息
+
+* rfkill 是否关闭
+* NetworkManager 是否取消对该接口的管理
+
 查看 PHY
 
-    .. code-block::
-
-        ~$ ls /sys/class/ieee80211/
-        phy4  phy5
+.. literalinclude:: iw_monitor_iw_dev.txt
 
 
-phy id 会动态分配，创建接口需要指定 phy，上面存在 phy4 和 phy5。
+理论上 PHY 加载时会创建默认 managed 接口，但也可能不创建，还可以直接查看注册的 PHY
+
+.. code-block::
+
+    ~$ ls /sys/class/ieee80211/
+    phy0  phy1
 
 
-创建 monitor 接口，其中 phy4 为指定 phy，mon0 为 monitor 接口名
+.. code-block::
 
-    .. code-block::
+    sudo iw phy phy0 interface add mon0 type monitor
+    sudo iw dev wlan0 del
+    sudo ip link set dev mon0 up
 
-        sudo iw phy phy4 interface add mon0 type monitor
+
+.. code-block::
+
+    #sudo iw dev mon0 set freq 2437
+    sudo iw dev mon0 set channel 36
 
 
-查看全部接口
+.. code-block::
+
+    sudo tcpdump -i mon0 -n -w wireless.cap
+
+
+复原环境
+
+.. code-block::
+
+    sudo iw dev mon0 del
+    sudo iw phy phy0 interface add wlan0 type managed

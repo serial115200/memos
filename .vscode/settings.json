@@ -12,4 +12,5 @@
     "esbonio.sphinx.srcDir": "${workspaceFolder}/source",
     "esbonio.sphinx.confDir": "${workspaceFolder}/source",
     "esbonio.sphinx.buildDir": "${workspaceFolder}/build/",
+    "liveServer.settings.port": 5502,
 }

@@ -36,6 +36,7 @@ HereDoc 语法为实验性功能，未来走向尚不明确，建议关注官方
 
 网络参考：
 
+* https://www.docker.com/blog/introduction-to-heredocs-in-dockerfiles
 * https://jedevc.com/blog/dockerfile-heredocs-intro
 
 

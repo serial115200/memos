@@ -3,11 +3,17 @@ C 语言
 
 
 .. toctree::
-   :maxdepth: 1
+    :maxdepth: 1
 
-   lang_c_sparse
-   lang_c_alignment
-   lang_c_optimization
+    lang_c_sparse
+    lang_c_alignment
+    lang_c_optimization
+
+    lang_c_bitfield
+
+
+Clang Static Analyzer
+https://cppcheck.sourceforge.io/
 
 
 技巧
@@ -25,3 +31,20 @@ C 语言
     #ifdef SOCK_CLOEXEC
         flags = SOCK_CLOEXEC;
     #endif
+
+
+#. 格式化
+
+vscode 环境已经集成，格式参考一下链接
+
+https://clang.llvm.org/docs/ClangFormat.html
+
+
+#. 开启编译警告
+
+.. code-block:: shell
+
+    -Wall
+    -Wextra
+    -pedantic/-Wpedantic
+    -Weverything (clang only)

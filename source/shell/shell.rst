@@ -2,6 +2,8 @@ Shell
 ================================================================================
 
 .. toctree::
-   :maxdepth: 1
+    :maxdepth: 1
 
-   alias
+    alias
+    heredoc
+    cmd_check

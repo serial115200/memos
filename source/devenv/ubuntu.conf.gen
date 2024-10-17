@@ -1,0 +1,62 @@
+#!/bin/dash
+
+ENV_DOCKERFILE="$(sed -e 's/#.*$//' -e '/^$/d' $1)"
+
+pkg2dockerfile()
+{
+cat > Dockerfile <<-EOF
+FROM ubuntu:20.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN     apt-get update \\
+    &&  apt-get install --no-install-recommends -y \\
+EOF
+
+for pkg in "$@"; do
+    printf "            %-38s %s\n" "${pkg}" "\\">> Dockerfile
+done
+
+cat >> Dockerfile <<-EOF
+    &&  apt-get autoremove \\
+    &&  apt-get clean \\
+    &&  rm -rf /var/lib/apt/lists/*
+
+RUN ln -sf /bin/bash /bin/sh
+
+WORKDIR /build
+
+CMD ["bash"]
+EOF
+}
+
+# shellcheck disable=SC2086
+pkg2dockerfile ${ENV_DOCKERFILE}
+
+
+#USERNAME="chen"
+#PASSWORD="chen"
+
+#while [ -n "$1" ]
+#do
+#    case "$1" in
+#        -u) USERNAME="$2" ;;
+#        -p) PASSWORD="$2" ;;
+#        -g) echo "Found the -c option" ;;
+#        *)  echo "$1 is not an option" ;;
+#    esac
+#    shift
+#done
+
+#adduser --disabled-password --gecos "" -q chen
+
+#echo chen:qwerqaz1234 | chpasswd
+#usermod -aG sudo chen
+#usermod -aG docker chen
+#su - chen -c "ssh-keygen -t rsa -q -f "$(pwd)/.ssh/id_rsa" -N ''"
+
+#dirmngr
+#libncurses5-dev
+#libncursesw5-dev
+#python3-pip
+#pip install rstcheck

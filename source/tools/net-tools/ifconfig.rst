@@ -54,19 +54,17 @@ Ubuntu 发行版
 
 以 `ifconfig eth0` 为例，输入后会显示如下接口信息
 
-.. code-block:: text
+    .. code-block:: text
 
-    eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
-            inet 172.17.0.3  netmask 255.255.0.0  broadcast 172.17.255.255
-            ether 02:42:ac:11:00:03  txqueuelen 0  (Ethernet)
-            RX packets 13074  bytes 21128354 (21.1 MB)
-            RX errors 0  dropped 0 overruns 0  frame 0
-            TX packets 10491  bytes 912046 (912.0 KB)
-            TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+                inet 172.17.0.3  netmask 255.255.0.0  broadcast 172.17.255.255
+                ether 02:42:ac:11:00:03  txqueuelen 0  (Ethernet)
+                RX packets 13074  bytes 21128354 (21.1 MB)
+                RX errors 0  dropped 0 overruns 0  frame 0
+                TX packets 10491  bytes 912046 (912.0 KB)
+                TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
 `ifconfig` 与 `ifconfig -a` 则会遍历相应的接口，并用以上形式进行呈现。
-
-
 
 
 配置参数
