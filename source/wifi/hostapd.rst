@@ -1,4 +1,6 @@
 
+hostapd
+================================================================================
 
 https://w1.fi/cgit/hostap/
 https://w1.fi/cgit/hostap/snapshot/hostap_2_11.tar.gz
@@ -17,3 +19,7 @@ make
 
 
 sudo rfkill unblock wlan
+
+systemctl stop wpa_supplicant.service
+systemctl disable wpa_supplicant.service
+systemctl mask wpa_supplicant.service

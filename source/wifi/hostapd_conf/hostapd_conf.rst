@@ -22,6 +22,8 @@ hostapd 配置解析
 基础内容
 --------------------------------------------------------------------------------
 
+* /lib/netifd/hostapd.sh
+
 接口配置
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -42,42 +44,7 @@ hostapd 配置解析
 * OpenWRT UCI 未出现该配置，猜测配置是自动生成
 
 
-网桥配置
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block::
-
-    # In case of atheros and nl80211 driver interfaces, an additional
-    # configuration parameter, bridge, may be used to notify hostapd if the
-    # interface is included in a bridge. This parameter is not used with Host AP
-    # driver. If the bridge parameter is not set, the drivers will automatically
-    # figure out the bridge interface (assuming sysfs is enabled and mounted to
-    # /sys) and this parameter may not be needed.
-    #
-    # For nl80211, this parameter can be used to request the AP interface to be
-    # added to the bridge automatically (brctl may refuse to do this before hostapd
-    # has been started to change the interface mode). If needed, the bridge
-    # interface is also created.
-    #bridge=br0
-
-.. code-block::
-
-    bridge=br-lan
-
-.. code-block::
-    :emphasize-lines: 3
-
-    config wifi-iface
-        option device 'radio1'
-        option network 'lan'
-        option mode 'ap'
-        option ssid 'test'
-        option encryption 'psk2'
-        option key '12345678'
-
-* 可选项，atheros 和 nl80211 驱动支持该选项，简化操作
-* linux_ioctl.c 包含网桥相关操作，后续是否会升级为 netlink
-* OpenWRT 的 AP 接口通常会加入 br-lan 网桥
 
 
 驱动配置
@@ -121,82 +88,7 @@ hostapd 配置解析
 * 参数接口，强制配置参数，对于开发而言值得研究
 
 
-日志配置
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block::
-
-    # hostapd event logger configuration
-    #
-    # Two output method: syslog and stdout (only usable if not forking to
-    # background).
-    #
-    # Module bitfield (ORed bitfield of modules that will be logged; -1 = all
-    # modules):
-    # bit 0 (1) = IEEE 802.11
-    # bit 1 (2) = IEEE 802.1X
-    # bit 2 (4) = RADIUS
-    # bit 3 (8) = WPA
-    # bit 4 (16) = driver interface
-    # bit 6 (64) = MLME
-    #
-    # Levels (minimum value for logged events):
-    #  0 = verbose debugging
-    #  1 = debugging
-    #  2 = informational messages
-    #  3 = notification
-    #  4 = warning
-    #
-    logger_syslog=-1
-    logger_syslog_level=2
-    logger_stdout=-1
-    logger_stdout_level=2
-
-.. code-block::
-
-    logger_syslog=127
-    logger_syslog_level=2
-    logger_stdout=127
-    logger_stdout_level=2
-
-.. code-block::
-
-    hostapd_set_log_options() {
-        local var="$1"
-
-        local log_level log_80211 log_8021x log_radius log_wpa log_driver log_iapp log_mlme
-        json_get_vars log_level log_80211 log_8021x log_radius log_wpa log_driver log_iapp log_mlme
-
-        set_default log_level 2
-        set_default log_80211  1
-        set_default log_8021x  1
-        set_default log_radius 1
-        set_default log_wpa    1
-        set_default log_driver 1
-        set_default log_iapp   1
-        set_default log_mlme   1
-
-        local log_mask="$(( \
-            ($log_80211  << 0) | \
-            ($log_8021x  << 1) | \
-            ($log_radius << 2) | \
-            ($log_wpa    << 3) | \
-            ($log_driver << 4) | \
-            ($log_iapp   << 5) | \
-            ($log_mlme   << 6)   \
-        ))"
-
-        append "$var" "logger_syslog=$log_mask" "$N"
-        append "$var" "logger_syslog_level=$log_level" "$N"
-        append "$var" "logger_stdout=$log_mask" "$N"
-        append "$var" "logger_stdout_level=$log_level" "$N"
-
-        return 0
-    }
-
-* 日志分为模块和级别两部分，可选值见上文
-* hostapd 和 OpenWRT 的默认配置都开启了全部模块的日志
-* OpenWRT 中为 radio 参数，UCI 参数分别为 log_{*} 和 log_level
 
 
 控制接口

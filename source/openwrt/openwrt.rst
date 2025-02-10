@@ -11,8 +11,12 @@ OpenWRT 手册
     dnsmasq/dnsmasq
     libubox/libubox
 
+    modules
 
-make package/foo/{clean,compile} V=99 STRIP=/bin/true
+
+* 避免 strip
+
+  make package/foo/{clean,compile} V=99 STRIP=/bin/true
 
 
 * 添加新设备

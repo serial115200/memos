@@ -39,10 +39,10 @@ Docker 镜像的特点对嵌入式开发环境而言，堪称完美：
 ，切换其它任意用户都存在这样的问题。该方案直接映射用户和目录，并以当前用户登录。
 
 
-VsCode 的 Developing inside a Container
+Visual Studio Code Dev Containers
 --------------------------------------------------------------------------------
 
-这是上一个方案的加强版，将工作目录映射到容器内，vscode 再远程到容器内。整个过程由
+这是上一个方案的加强版，将工作目录映射到容器内，VScode 再远程到容器内。整个过程由
 Visual Studio Code Dev Containers 插件实现，参数和配置由工作目录下的
 .devcontainer/devcontainer.json 文件决定。
 

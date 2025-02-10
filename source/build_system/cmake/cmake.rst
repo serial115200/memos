@@ -5,7 +5,7 @@ Cmake 随笔
     :maxdepth: 1
 
     cmake_tips
-
+    cmake_debug
 
 现代 Cmake
 

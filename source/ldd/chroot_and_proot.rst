@@ -28,7 +28,6 @@ chroot
 
     sudo chroot alpine-linux-x86-64 apk update
     sudo chroot alpine-linux-x86-64 apk add bash
-
     sudo chroot alpine-linux-x86-64 bash
 
     sudo chroot alpine-linux-x86-64 /bin/env -i \

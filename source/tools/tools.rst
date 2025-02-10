@@ -13,6 +13,7 @@
 
     socat
 
-
     sed
     hex_bin
+
+    egpyt/egpyt

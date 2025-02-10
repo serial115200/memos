@@ -32,6 +32,9 @@
     tools/tools
     ldd/ldd
     wifi/wifi
+    time/time
+    debug/toc_debug
+    network/network
 
 
 Indices and tables

@@ -5,23 +5,15 @@ SSH 客户端 - 远程访问
 软件安装
 --------------------------------------------------
 
-.. tab:: Ubuntu/Debian
+.. code-block:: shell
 
-    .. code-block:: shell
-
-        $ sudo apt install -y openssh-client
-
-.. tab:: CentOS/Fedora
-
-    .. code-block:: shell
-
-        $ sudo yum install -y openssh-clients
+    sudo apt install -y openssh-client
 
 安装确认:
 
 .. code-block:: shell
 
-    $ ssh -V
+    ~$ ssh -V
     OpenSSH_8.2p1 Ubuntu-4ubuntu0.2, OpenSSL 1.1.1f  31 Mar 2020
 
 连接主机

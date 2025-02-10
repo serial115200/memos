@@ -2,6 +2,7 @@
 ================================================================================
 
 .. code-block::
+    :caption: 配置原文
 
     ##### IEEE 802.11n related configuration ######################################
 
@@ -63,3 +64,47 @@
     # 1 = enable; Enable TWT responder support in HT and VHT modes if supported by
     # the driver.
     #ht_vht_twt_responder=0
+
+
+.. code-block::
+    :caption: OpenWRT 配置修正
+
+    uci set wireless.radio0.ldpc=0
+    uci set wireless.radio0.rx_stbc=0
+    uci set wireless.radio0.max_amsdu=0
+    uci commit wireless
+    reload_config
+
+* mac80211_hwsim 设备不支持以上参数，待详查，影响如下
+
+
+.. code-block::
+    :caption: OpenWRT 配置修正影响
+
+    # 原始
+    ht_capab=[LDPC][SHORT-GI-20][RX-STBC123][MAX-AMSDU-7935][DSSS_CCK-40]
+
+    # 修正
+    ht_capab=[SHORT-GI-20][SHORT-GI-40][DSSS_CCK-40]
+
+* 测试频段为 2.4G，其他频段的修正待查，mac80211_hwsim 仿真理论上可以欺骗 mac 层
+* 高通驱动在 sys 目录下直接导出支持的 capabilities，mac80211 使用 iw 命令，有待改进
+
+
+选项解析
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* 启用 802.11n
+
+.. code-block::
+
+    ieee80211n=1
+    #disable_11n=0
+
+
+* ht_capab 配置
+
+.. code-block::
+
+    ieee80211n=1
+    #disable_11n=0

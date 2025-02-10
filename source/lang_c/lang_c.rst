@@ -9,7 +9,11 @@ C 语言
     lang_c_alignment
     lang_c_optimization
 
+    lang_c_bit
     lang_c_bitfield
+
+    lang_c_union
+    lang_c_hook
 
 
 Clang Static Analyzer

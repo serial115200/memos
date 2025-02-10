@@ -1,4 +1,5 @@
-
+C hook 技术
+================================================================================
 
 内存 hook 的方法，部分也适用于任意函数
 --------------------------------------------------------------------------------
@@ -40,7 +41,7 @@ int main()
 Linux specific. You can override functions from dynamic libraries non-invasively
 by specifying them in the LD_PRELOAD environment variable.
 
- LD_PRELOAD=./mymalloc.so ./exe
+LD_PRELOAD=./mymalloc.so ./exe
 
 Mac OSX specific.
 
