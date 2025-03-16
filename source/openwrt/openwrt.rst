@@ -13,11 +13,13 @@ OpenWRT 手册
 
     modules
 
+* openwrt on qemu
+
+  https://hackmd.io/@gtknw/openwrt_on_qemu
 
 * 避免 strip
 
   make package/foo/{clean,compile} V=99 STRIP=/bin/true
-
 
 * 添加新设备
 

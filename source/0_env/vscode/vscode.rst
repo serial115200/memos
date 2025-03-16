@@ -4,7 +4,7 @@ VsCode
 .. toctree::
     :maxdepth: 1
 
-    vscode_extension
+    vscode_ext
 
 
 

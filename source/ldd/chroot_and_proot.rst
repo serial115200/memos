@@ -4,6 +4,7 @@
 
 chroot
 --------------------------------------------------------------------------------
+
 利用 chroot 可以模拟环境，制作镜像
 
 .. code-block::
@@ -16,7 +17,7 @@ chroot
 
 .. code-block::
 
-    tar vxf alpine-minirootfs-3.20.0-x86_64.tar.gz -C alpine-linux-x86-64
+    tar -vxf alpine-minirootfs-3.20.0-x86_64.tar.gz -C alpine-linux-x86-64
 
 网络不通解决方案
 

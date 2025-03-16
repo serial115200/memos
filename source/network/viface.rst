@@ -1,8 +1,4 @@
-网络
+虚拟网络接口
 ================================================================================
 
-.. toctree::
-    :maxdepth: 1
-
-    viface
-    net_proto_arp
+.. include:: viface/net_viface_nlmon.rst

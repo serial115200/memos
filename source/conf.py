@@ -49,3 +49,4 @@ copybutton_prompt_text = "~$ "
 
 # https://github.com/numpy/numpydoc/issues/69
 numpydoc_show_class_members = False
+class_members_toctree = False
