@@ -3,12 +3,10 @@
 ################################################################################
 
 .. toctree::
-    :caption: 环境配置
+    :caption: 开发环境搭建
     :maxdepth: 1
 
-    0_env/devenv/devenv
-    0_env/sphinx/sphinx
-    0_env/vscode/vscode
+    env_dev/env_dev
 
 
 .. toctree::

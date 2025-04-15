@@ -1,13 +1,17 @@
 libubox 手册
 ================================================================================
 
-libubox 库是 OpenWRT 的核心组件，它封装了许多常用的功能，尤其是网络功能，借助该库可以快
-速开发应用程序，同时也可以节省嵌入式设备宝贵的存储资源。
-
-
 .. toctree::
     :maxdepth: 1
 
     libubox_md5
     libubox_base64
-    libubox_jshn
+    libubox_js
+
+
+
+.. code-block::
+
+    sudo apt-get install pkgconf lua5.1 liblua5.1-0-dev libjson-c-dev
+    pkg-config --cflags --libs json-c
+    pkg-config --cflags --libs lua5.1
