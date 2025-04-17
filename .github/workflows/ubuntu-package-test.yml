@@ -27,8 +27,12 @@ jobs:
     strategy:
       matrix:
         ubuntu-version: [20.04, 22.04, 24.04]
+        platforms: [linux/amd64]
     steps:
       - uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -49,9 +53,10 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: source/env_dev/ubuntu
-          file: Dockerfile.ubuntu${{ matrix.ubuntu-version }}
+          context: source/env_dev/ubuntu/
+          file: source/env_dev/ubuntu/Dockerfile.ubuntu${{ matrix.ubuntu-version }}
           push: true
+          platforms: ${{ matrix.platforms }}
           tags: |
             ghcr.io/${{ github.repository_owner }}/ubuntu-dev:latest
             ghcr.io/${{ github.repository_owner }}/ubuntu-dev:${{ matrix.ubuntu-version }}
