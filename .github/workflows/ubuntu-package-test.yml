@@ -11,22 +11,19 @@ on:
   workflow_dispatch:
     inputs:
       ubuntu_version:
-        description: 'Ubuntu version to test'
+        description: 'Test all Ubuntu versions'
         required: true
         default: 'all'
         type: choice
         options:
           - 'all'
-          - '20.04'
-          - '22.04'
-          - '24.04'
 
 jobs:
   test-packages:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ubuntu-version: ${{ github.event_name == 'workflow_dispatch' && inputs.ubuntu_version != 'all' && [inputs.ubuntu_version] || [20.04, 22.04, 24.04] }}
+        ubuntu-version: [20.04, 22.04, 24.04]
     steps:
       - uses: actions/checkout@v4
       - name: Set up Docker Buildx
