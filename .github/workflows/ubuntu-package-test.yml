@@ -37,7 +37,7 @@ jobs:
           RUN apt-get update && apt-get install -y apt-utils
           COPY source/env_dev/ubuntu/env_ubuntu.conf /tmp/common.conf
           COPY source/env_dev/ubuntu/env_ubuntu_${CONFIG_VERSION}.conf /tmp/version.conf
-          RUN cat /tmp/common.conf /tmp/version.conf | grep -v '^#' | grep -v '^$' | xargs apt-get install -y
+          RUN cat /tmp/common.conf /tmp/version.conf | grep -v '^#' | grep -v '^$' | tr '\n' ' ' | xargs -I{} apt-get install -y {}
           EOF
           docker buildx build --load -t ubuntu-test:${{ matrix.ubuntu-version }} .
           docker run --rm ubuntu-test:${{ matrix.ubuntu-version }} bash -c "echo 'All packages installed successfully'"
