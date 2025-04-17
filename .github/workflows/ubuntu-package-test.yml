@@ -23,18 +23,20 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ubuntu-version: [2004, 2204, 2404]
+        ubuntu-version: [20.04, 22.04, 24.04]
     steps:
       - uses: actions/checkout@v4
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Build and test Docker image
         run: |
+          # Convert version format (e.g., 22.04 -> 2204)
+          CONFIG_VERSION=$(echo ${{ matrix.ubuntu-version }} | tr -d '.')
           cat > Dockerfile << EOF
           FROM ubuntu:${{ matrix.ubuntu-version }}
           RUN apt-get update && apt-get install -y apt-utils
           COPY source/env_dev/ubuntu/env_ubuntu.conf /tmp/common.conf
-          COPY source/env_dev/ubuntu/env_ubuntu_${{ matrix.ubuntu-version }}.conf /tmp/version.conf
+          COPY source/env_dev/ubuntu/env_ubuntu_${CONFIG_VERSION}.conf /tmp/version.conf
           RUN cat /tmp/common.conf /tmp/version.conf | grep -v '^#' | grep -v '^$' | xargs apt-get install -y
           EOF
           docker buildx build --load -t ubuntu-test:${{ matrix.ubuntu-version }} .
