@@ -4,9 +4,9 @@ on:
   push:
     paths:
       - 'source/env_dev/ubuntu/env_ubuntu.conf'
-      - 'source/env_dev/ubuntu/env_ubuntu_2004.conf'
-      - 'source/env_dev/ubuntu/env_ubuntu_2204.conf'
-      - 'source/env_dev/ubuntu/env_ubuntu_2404.conf'
+      - 'source/env_dev/ubuntu/env_ubuntu_20.04.conf'
+      - 'source/env_dev/ubuntu/env_ubuntu_22.04.conf'
+      - 'source/env_dev/ubuntu/env_ubuntu_24.04.conf'
       - '.github/workflows/ubuntu-package-test.yml'
   workflow_dispatch:
     inputs:
@@ -30,14 +30,31 @@ jobs:
         uses: docker/setup-buildx-action@v3
       - name: Build and test Docker image
         run: |
-          # Convert version format (e.g., 22.04 -> 2204)
-          CONFIG_VERSION=$(echo ${{ matrix.ubuntu-version }} | tr -d '.')
+          # Get package list, removing comments and empty lines
+          PKGS=$(cat source/env_dev/ubuntu/env_ubuntu.conf source/env_dev/ubuntu/env_ubuntu_${{ matrix.ubuntu-version }}.conf | sed -e 's/#.*$//' -e '/^$/d')
+
+          # Generate Dockerfile
           cat > Dockerfile << EOF
           FROM ubuntu:${{ matrix.ubuntu-version }}
-          RUN apt-get update && apt-get install -y apt-utils
-          COPY source/env_dev/ubuntu/env_ubuntu.conf /tmp/common.conf
-          COPY source/env_dev/ubuntu/env_ubuntu_${CONFIG_VERSION}.conf /tmp/version.conf
-          RUN cat /tmp/common.conf /tmp/version.conf | grep -v '^#' | grep -v '^$' | cut -d'#' -f1 | tr '\n' ' ' | xargs -I{} apt-get install -y {}
+
+          ENV DEBIAN_FRONTEND=noninteractive
+
+          RUN apt-get update \\
+              && apt-get install --no-install-recommends -y \\
           EOF
+
+          # Add packages to Dockerfile
+          for pkg in $PKGS; do
+              echo "                $pkg \\" >> Dockerfile
+          done
+
+          # Complete Dockerfile
+          cat >> Dockerfile << EOF
+              && apt-get autoremove \\
+              && apt-get clean \\
+              && rm -rf /var/lib/apt/lists/*
+          EOF
+
+          # Build and test the image
           docker buildx build --load -t ubuntu-test:${{ matrix.ubuntu-version }} .
           docker run --rm ubuntu-test:${{ matrix.ubuntu-version }} bash -c "echo 'All packages installed successfully'"
