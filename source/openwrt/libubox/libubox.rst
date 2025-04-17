@@ -6,7 +6,7 @@ libubox 手册
 
     libubox_md5
     libubox_base64
-    libubox_js
+    libubox_jshn
 
 
 

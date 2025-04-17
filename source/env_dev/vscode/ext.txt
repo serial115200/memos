@@ -1,7 +1,3 @@
-
-
-
-
 akiramiyakoda.cppincludeguard
 cl.eide
 codezombiech.gitignore

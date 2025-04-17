@@ -16,7 +16,7 @@ mainline 内核更新
     sudo mainline --install-latest
 
 
-其它事项可以查看 mainline 的帮助信息，善用 uname -r 检查版本
+其它事项可以查看 mainline 的帮助信息，使用 uname -r 检查版本
 
 
 系统重启

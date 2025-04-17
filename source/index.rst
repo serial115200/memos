@@ -3,46 +3,53 @@
 ################################################################################
 
 .. toctree::
-    :caption: 开发环境搭建
+    :caption: 环境配置
     :maxdepth: 1
 
     env_dev/env_dev
-
+    env_dev/env_other
 
 .. toctree::
-    :caption: 虚拟化与隔离技术
+    :caption: 隔离与虚拟化
     :maxdepth: 1
 
     1_isolation/docker/docker
     1_isolation/namespace/namespace
-
+    tools/image/chroot
+    tools/image/proot
 
 .. toctree::
-    :caption: 参考手册
+    :caption: 调试与分析
+    :maxdepth: 1
+
+    debug/toc_debug
+    sniffer/sniffer
+
+.. toctree::
+    :caption: 构建与 OpenWRT
+    :maxdepth: 1
+
+    build_system/build_system
+    openwrt/openwrt
+
+.. toctree::
+    :caption: 参考笔记
     :maxdepth: 1
 
     apue/apue
     ldd/ldd
     crypto/crypto
-    build_system/build_system
-
-    openwrt/openwrt
     lang_c/lang_c
     netlink/netlink
-
     git/git
     github/github
     shell/shell
     ssh/ssh
-    sniffer/sniffer
-    ubuntu/ubuntu
+
     tools/tools
     wifi/wifi
     time/time
-    debug/toc_debug
     network/network
-
-
 
 
 Indices and tables

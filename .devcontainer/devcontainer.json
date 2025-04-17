@@ -35,5 +35,5 @@
 		"type=bind,source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,readonly"
 	],
 	//Enabling SSH connections over HTTPS
-	"postCreateCommand": "cp /config /home/vscode/.ssh/"
+	//"postCreateCommand": "cp /config /home/vscode/.ssh/"
 }

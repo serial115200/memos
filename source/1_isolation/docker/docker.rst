@@ -14,6 +14,7 @@ Dokcer
     docker_installation
     docker_build_image
 
+    docker_cap
     docker_alpine
     docker_heredoc
     docker_misc

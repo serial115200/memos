@@ -20,6 +20,12 @@ Clang Static Analyzer
 https://cppcheck.sourceforge.io/
 
 
+
+- https://github.com/antirez/linenoise
+        命令行库
+- https://github.com/argtable/argtable3
+        参数解析库
+
 技巧
 --------------------------------------------------------------------------------
 

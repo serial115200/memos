@@ -10,6 +10,8 @@
     "files.trimTrailingWhitespace": true,
     "esbonio.sphinx.srcDir": "${workspaceFolder}/source",
     "esbonio.sphinx.confDir": "${workspaceFolder}/source",
-    "esbonio.sphinx.buildDir": "${workspaceFolder}/build/",
-    "liveServer.settings.port": 5502,
+    "esbonio.sphinx.buildDir": "${workspaceFolder}/build",
+    "liveServer.settings.port": 5503,
+    "liveServer.settings.fullReload": true,
+    "liveServer.settings.root": "/build/html",
 }

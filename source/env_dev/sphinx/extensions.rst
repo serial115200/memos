@@ -110,3 +110,17 @@ Web
 * 推荐 `sphinx-togglebutton <https://github.com/executablebooks/sphinx-togglebutton>`_
 
   Show and hide content with a button in Sphinx
+
+
+* https://github.com/melissawm/sphinx-tags
+* https://github.com/modelmat/sphinxcontrib-drawio
+* https://github.com/humitos/sphinx-version-warning
+* https://github.com/coldfix/sphinx-code-tabs
+* https://github.com/click-contrib/sphinx-click
+* https://github.com/sphinx-contrib/sphinxcontrib-versioning
+* https://github.com/bitprophet/releases
+* https://github.com/bosbyj/sphinx.search.zh_CN
+* https://github.com/executablebooks/sphinx-design
+* https://github.com/sphinx-toolbox/sphinx-toolbox
+* https://github.com/sphinx-contrib/kroki
+* https://github.com/ulrobix/sphinxcontrib-contentui

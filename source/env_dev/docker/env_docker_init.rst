@@ -1,5 +1,8 @@
-Docker 开发环境
+Docker （Ubuntu）开发环境
 ================================================================================
+
+https://docs.docker.com/engine/install/ubuntu
+
 
 目前有多种 Docker 开发环境，可根据需求进行选择：
 
@@ -16,9 +19,9 @@ Docker 镜像的特点对嵌入式开发环境而言，堪称完美：
 * 可分发：内部迁移方便，对外提供环境也方便
 * 档案化：docker 镜像基于 Dockerfile，依赖关系清晰，还可做版本控制
 
-:download:`docker_env.bash <devenv_dl/env_docker.bash>`
+:download:`docker_env.bash <env_docker.bash>`
 
-.. literalinclude:: devenv_dl/env_docker.bash
+.. literalinclude:: env_docker.bash
     :language: bash
     :linenos:
 

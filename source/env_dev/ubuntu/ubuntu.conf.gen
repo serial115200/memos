@@ -32,31 +32,3 @@ EOF
 
 # shellcheck disable=SC2086
 pkg2dockerfile ${ENV_DOCKERFILE}
-
-
-#USERNAME="chen"
-#PASSWORD="chen"
-
-#while [ -n "$1" ]
-#do
-#    case "$1" in
-#        -u) USERNAME="$2" ;;
-#        -p) PASSWORD="$2" ;;
-#        -g) echo "Found the -c option" ;;
-#        *)  echo "$1 is not an option" ;;
-#    esac
-#    shift
-#done
-
-#adduser --disabled-password --gecos "" -q chen
-
-#echo chen:qwerqaz1234 | chpasswd
-#usermod -aG sudo chen
-#usermod -aG docker chen
-#su - chen -c "ssh-keygen -t rsa -q -f "$(pwd)/.ssh/id_rsa" -N ''"
-
-#dirmngr
-#libncurses5-dev
-#libncursesw5-dev
-#python3-pip
-#pip install rstcheck

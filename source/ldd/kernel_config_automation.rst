@@ -1,11 +1,5 @@
-内核临时笔记
-================================================================================
-
-
 修改选项
---------------------------------------------------------------------------------
-
-https://stackoverflow.com/questions/7505164/how-do-you-non-interactively-turn-on-features-in-a-linux-kernel-config-file
+================================================================================
 
 Single Option approach
 
@@ -37,10 +31,3 @@ Multiple-File Merge approach
     export CROSS_COMPILE=aarch64-linux-gnu-
     make defconfig
     ./scripts/kconfig/merge_config.sh .config .config-fragment
-
-安装内核头文件
---------------------------------------------------------------------------------
-
-.. code-block::
-
-    make headers_install ARCH=i386 INSTALL_HDR_PATH=/usr
