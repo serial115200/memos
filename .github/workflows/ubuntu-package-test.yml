@@ -30,31 +30,14 @@ jobs:
         uses: docker/setup-buildx-action@v3
       - name: Build and test Docker image
         run: |
-          # Get package list, removing comments and empty lines
-          PKGS=$(cat source/env_dev/ubuntu/env_ubuntu.conf source/env_dev/ubuntu/env_ubuntu_${{ matrix.ubuntu-version }}.conf | sed -e 's/#.*$//' -e '/^$/d')
-
-          # Generate Dockerfile
-          cat > Dockerfile << EOF
-          FROM ubuntu:${{ matrix.ubuntu-version }}
-
-          ENV DEBIAN_FRONTEND=noninteractive
-
-          RUN apt-get update \\
-              && apt-get install --no-install-recommends -y \\
-          EOF
-
-          # Add packages to Dockerfile
-          for pkg in $PKGS; do
-              echo "                $pkg \\" >> Dockerfile
-          done
-
-          # Complete Dockerfile
-          cat >> Dockerfile << EOF
-              && apt-get autoremove \\
-              && apt-get clean \\
-              && rm -rf /var/lib/apt/lists/*
-          EOF
+          # Generate Dockerfile using the script
+          cd source/env_dev/ubuntu
+          chmod +x generate_scripts.sh
+          ./generate_scripts.sh
 
           # Build and test the image
-          docker buildx build --load -t ubuntu-test:${{ matrix.ubuntu-version }} .
+          docker buildx build --load -f Dockerfile.ubuntu${{ matrix.ubuntu-version }} -t ubuntu-test:${{ matrix.ubuntu-version }} .
           docker run --rm ubuntu-test:${{ matrix.ubuntu-version }} bash -c "echo 'All packages installed successfully'"
+
+          # Clean up generated files
+          rm Dockerfile.ubuntu* install_packages_ubuntu*.sh
