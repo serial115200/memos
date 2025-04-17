@@ -29,8 +29,6 @@ jobs:
         ubuntu-version: [20.04, 22.04, 24.04]
         platforms: [linux/amd64]
     steps:
-      - uses: actions/checkout@v4
-
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
@@ -53,14 +51,14 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: source/env_dev/ubuntu/
-          file: source/env_dev/ubuntu/Dockerfile.ubuntu${{ matrix.ubuntu-version }}
+          context: source/env_dev/ubuntu
+          file: Dockerfile.ubuntu${{ matrix.ubuntu-version }}
           push: true
           platforms: ${{ matrix.platforms }}
           tags: |
-            ghcr.io/${{ github.repository_owner }}/ubuntu-dev:latest
+            ghcr.io/${{ github.repository_owner }}/ubuntu-dev:${{ matrix.ubuntu-version }}-latest
             ghcr.io/${{ github.repository_owner }}/ubuntu-dev:${{ matrix.ubuntu-version }}
-            ghcr.io/${{ github.repository_owner }}/ubuntu-dev:${{ matrix.ubuntu-version }}-${{ github.sha }}
+            ghcr.io/${{ github.repository_owner }}/ubuntu-dev:${{ matrix.ubuntu-version }}-${{ github.sha | substr(0,7) }}
           labels: |
             org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
             org.opencontainers.image.version=${{ matrix.ubuntu-version }}
