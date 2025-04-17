@@ -31,3 +31,7 @@ Windows 开发环境
 * https://github.com/namazso/OpenHashTab
 
     HashTab 组件，依附于属性菜单，好用，但使用需求不足
+
+* Beyond Compare 4 ： https://www.scootersoftware.com
+
+    文本比较软件

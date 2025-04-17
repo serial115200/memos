@@ -7,6 +7,4 @@ GitHUB 手册
 
     github_action_list
     github_container_registry
-
-
-https://docs.github.com/en/authentication/troubleshooting-ssh/using-ssh-over-the-https-port
+    github_ssh_over_the_https_port
