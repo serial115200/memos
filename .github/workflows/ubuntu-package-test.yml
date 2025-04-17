@@ -54,7 +54,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: source/env_dev/ubuntu
-          file: Dockerfile.ubuntu${{ matrix.ubuntu-version }}
+          file: source/env_dev/ubuntu/Dockerfile.ubuntu${{ matrix.ubuntu-version }}
           push: true
           platforms: ${{ matrix.platforms }}
           tags: |
