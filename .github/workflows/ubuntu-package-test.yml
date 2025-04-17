@@ -43,8 +43,8 @@ jobs:
       - name: Generate Dockerfile
         run: |
           cd source/env_dev/ubuntu
-          chmod +x generate_scripts.sh
-          ./generate_scripts.sh
+          chmod +x env_ubuntu_gen.sh
+          ./env_ubuntu_gen.sh
 
       - name: Build and push
         uses: docker/build-push-action@v5
