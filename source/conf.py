@@ -45,6 +45,11 @@ language = 'zh_CN'
 html_theme = "sphinx_rtd_theme"
 #html_static_path = ['_static']
 
+# 添加构建时间
+html_last_updated_fmt = '%Y-%m-%d %H:%M:%S'
+html_show_sphinx = True
+html_show_copyright = False
+
 copybutton_prompt_text = "~$ "
 
 # https://github.com/numpy/numpydoc/issues/69
