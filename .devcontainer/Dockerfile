@@ -6,11 +6,6 @@ FROM mcr.microsoft.com/vscode/devcontainers/python:${VARIANT}
 COPY config /
 COPY requirements.txt /
 
-#RUN <<EOF
-#sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
-#pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/web/simple
-#EOF
-
 RUN <<EOF
 apt-get update
 apt-get install --no-install-recommends --yes \

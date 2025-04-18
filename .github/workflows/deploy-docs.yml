@@ -2,7 +2,8 @@ name: Deploy Documentation
 
 on:
   push:
-    branches: [ main ]
+    tags:
+      - 'v*'  # 匹配 v 开头的标签，如 v1.0.0
   workflow_dispatch:
 
 permissions:
