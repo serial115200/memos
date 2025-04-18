@@ -1,4 +1,4 @@
-name: Ubuntu Development Environment Build and Publish
+name: Ubuntu Development Image Build and Publish
 
 on:
   push:
@@ -9,14 +9,6 @@ on:
       - 'source/env_dev/ubuntu/env_ubuntu_24.04.conf'
       - '.github/workflows/devops-ubuntu-dev.yml'
   workflow_dispatch:
-    inputs:
-      ubuntu_version:
-        description: 'Build and publish Ubuntu development images'
-        required: true
-        default: 'all'
-        type: choice
-        options:
-          - 'all'
 
 jobs:
   build-and-publish:
