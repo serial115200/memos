@@ -1,4 +1,4 @@
-name: Ubuntu Development Image Build and Publish
+name: Ubuntu Development Environment Build and Publish
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
       - 'source/env_dev/ubuntu/env_ubuntu_20.04.conf'
       - 'source/env_dev/ubuntu/env_ubuntu_22.04.conf'
       - 'source/env_dev/ubuntu/env_ubuntu_24.04.conf'
-      - '.github/workflows/ubuntu-package-test.yml'
+      - '.github/workflows/devops-ubuntu-dev.yml'
   workflow_dispatch:
     inputs:
       ubuntu_version:
@@ -58,9 +58,9 @@ jobs:
           push: true
           platforms: ${{ matrix.platforms }}
           tags: |
-            ghcr.io/${{ github.repository_owner }}/ubuntu-dev:${{ matrix.ubuntu-version }}-latest
-            ghcr.io/${{ github.repository_owner }}/ubuntu-dev:${{ matrix.ubuntu-version }}
-            ghcr.io/${{ github.repository_owner }}/ubuntu-dev:${{ matrix.ubuntu-version }}-${{ github.sha }}
+            ghcr.io/${{ github.repository_owner }}/${{ github.repository }}/ubuntu-dev:${{ matrix.ubuntu-version }}-latest
+            ghcr.io/${{ github.repository_owner }}/${{ github.repository }}/ubuntu-dev:${{ matrix.ubuntu-version }}
+            ghcr.io/${{ github.repository_owner }}/${{ github.repository }}/ubuntu-dev:${{ matrix.ubuntu-version }}-${{ github.sha }}
           labels: |
             org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
             org.opencontainers.image.version=${{ matrix.ubuntu-version }}
