@@ -37,3 +37,8 @@ docker run -d --privileged -v /lib/modules:/lib/modules centos:latest  bash
 5. Run ip netns command to access this name space. For example:
 
 # ip netns exec [container_id] ip a
+
+
+# Add container netns to /var/run/netns so it is detected by ip netns
+sudo mkdir -p /var/run/netns
+sudo ln -sf /proc/$pid/ns/net "/var/run/netns/container_name"

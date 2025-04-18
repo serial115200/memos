@@ -13,8 +13,8 @@
     :maxdepth: 1
     :caption: 网络操作
 
-    networking/iproute2/iproute2
     networking/net-tools/ifconfig
+    networking/iproute2/iproute2
     networking/iwconfig
     networking/iw/iw
     networking/socat

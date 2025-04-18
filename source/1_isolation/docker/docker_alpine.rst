@@ -5,6 +5,11 @@ Docker Alpine 镜像
 
 * 软件包管理：https://wiki.alpinelinux.org/wiki/Alpine_Package_Keeper
 
+构建 rootfs
+--------------------------------------------------------------------------------
+https://github.com/alpinelinux/alpine-make-rootfs
+
+
 更换软件源
 --------------------------------------------------------------------------------
 
