@@ -4,10 +4,10 @@
 
 .. toctree::
     :caption: 环境配置
-    :maxdepth: 1
+    :maxdepth: 2
 
-    env_dev/env_dev
-    env_dev/env_other
+    env/env_dev
+    env/env_other
 
 .. toctree::
     :caption: 隔离与虚拟化
@@ -22,7 +22,7 @@
     :caption: 调试与分析
     :maxdepth: 1
 
-    debug/toc_debug
+    debug/debug
     sniffer/sniffer
 
 .. toctree::

@@ -1,17 +1,22 @@
-Docker Alpine 镜像
+Alpine 实践
 ================================================================================
 
-参考文档：
+Alpine 因其镜像小巧而大受欢迎，但
 
-* 软件包管理：https://wiki.alpinelinux.org/wiki/Alpine_Package_Keeper
+* Alpine 使用 musl 库，可能存在兼容问题，部分库没有安装包，如 pip 可能
+*
 
-构建 rootfs
+
+参考文档
 --------------------------------------------------------------------------------
-https://github.com/alpinelinux/alpine-make-rootfs
 
+* 软件包管理： https://wiki.alpinelinux.org/wiki/Alpine_Package_Keeper
+
+
+软件管理
+--------------------------------------------------------------------------------
 
 更换软件源
---------------------------------------------------------------------------------
 
     .. code-block:: bash
 
@@ -19,10 +24,7 @@ https://github.com/alpinelinux/alpine-make-rootfs
         sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
 
 
-软件管理
---------------------------------------------------------------------------------
-
-查看软件依赖，以 alpine-sdk 为例，它是 build-base 的超集
+查看依赖
 
     .. code-block:: bash
 
@@ -33,12 +35,12 @@ https://github.com/alpinelinux/alpine-make-rootfs
         git
 
 
-编译依赖安装与卸载
+依赖管理
 
     .. code-block:: bash
 
         apk add --no-cache --virtual .build-deps alpine-sdk
-        apk del --no-cache .build-deps
+        apk del .build-deps
 
 
 * --no-cache: 避免建立缓存

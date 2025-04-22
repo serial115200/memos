@@ -141,9 +141,9 @@ UNIX 域套接字也属于网络范畴，因此也可作为监听地址或目的
 
 .. image:: ssh_image/remote_port_forwarding.png
 
-远程转发就是远程主机收到的数据通过本地主机转到目的地址，上图对应的命令如下:
+远程转发就是远程主机收到的数据通过本地主机转到目的地址，工作原理如下:
 
-帮助信息:
+示例命令:
 
 .. code-block:: bash
 
@@ -156,7 +156,7 @@ UNIX 域套接字也属于网络范畴，因此也可作为监听地址或目的
 
 .. code-block:: bash
 
-    ssh -R           9999 sshserver
+    ssh -R 9999:localhost:8080 user@sshserver
 
 
 

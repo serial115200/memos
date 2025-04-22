@@ -21,7 +21,8 @@ jobs:
         ubuntu-version: [20.04, 22.04, 24.04]
         platforms: [linux/amd64]
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3

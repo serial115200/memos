@@ -16,18 +16,18 @@ Ubuntu 通用
 ubuntu 20.04
 --------------------------------------------------------------------------------
 
-.. literalinclude:: env_ubuntu_2004.conf
+.. literalinclude:: env_ubuntu_20.04.conf
     :language: bash
 
 Ubuntu 22.04
 --------------------------------------------------------------------------------
 
-.. literalinclude:: env_ubuntu_2204.conf
+.. literalinclude:: env_ubuntu_22.04.conf
     :language: bash
 
 
 Ubuntu 24.04
 --------------------------------------------------------------------------------
 
-.. literalinclude:: env_ubuntu_2204.conf
+.. literalinclude:: env_ubuntu_22.04.conf
     :language: bash

@@ -14,4 +14,5 @@
     "liveServer.settings.port": 5503,
     "liveServer.settings.fullReload": true,
     "liveServer.settings.root": "/build/html",
+    "cline.preferredLanguage": "Simplified Chinese - 简体中文",
 }

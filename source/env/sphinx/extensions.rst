@@ -124,3 +124,4 @@ Web
 * https://github.com/sphinx-toolbox/sphinx-toolbox
 * https://github.com/sphinx-contrib/kroki
 * https://github.com/ulrobix/sphinxcontrib-contentui
+* https://github.com/ammaraskar/sphinx-action

@@ -4,9 +4,10 @@
     :maxdepth: 1
 
     gdb/gdb
-    strace
+    tools/debug_tools_strace
 
 
 软件调试
 --------------------------------------------------------------------------------
+
 * `内存 <https://valgrind.org>`_

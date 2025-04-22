@@ -7,3 +7,4 @@
     viface
     vinterface/vinterface
     net_proto_arp
+    net_proto_ipv4_header

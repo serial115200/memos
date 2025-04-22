@@ -128,7 +128,7 @@ VPN 访问
 
     An ASCII Header Generator for Network Protocols
 
-* 推荐: `draw.io <https://www.diagrams.net/>`_
+* 推荐: `draw.io <https://www.drawio.com>`_
 
     通用作图工具，不只局限于流程图
 
