@@ -26,4 +26,5 @@
 	"mounts": [
 		"type=bind,source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,readonly"
 	],
+	"postStartCommand": "make livehtml"
 }
