@@ -1,4 +1,3 @@
-Pillow
 esbonio
 docutils
 sphinx-prompt
