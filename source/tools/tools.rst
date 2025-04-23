@@ -2,6 +2,12 @@
 ================================================================================
 
 .. toctree::
+    :caption: 杂项
+    :maxdepth: 1
+
+    screen
+
+.. toctree::
     :caption: 镜像工具
     :maxdepth: 1
 
@@ -19,11 +25,9 @@
     networking/iw/iw
     networking/socat
 
-    screen
-
-
+.. toctree::
+    :maxdepth: 1
+    :caption: 文本和二进制编辑
 
     sed
     hex_bin
-
-    egpyt/egpyt

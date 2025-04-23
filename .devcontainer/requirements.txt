@@ -1,4 +1,3 @@
-Sphinx==7.1.2
 Pillow
 esbonio
 docutils
@@ -10,3 +9,4 @@ sphinx-cjkspace
 sphinxcontrib-mermaid
 sphinxcontrib-kroki
 sphinx-rtd-theme
+sphinx-autobuild

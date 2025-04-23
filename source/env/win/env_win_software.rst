@@ -142,7 +142,7 @@ VPN 访问
 PDF
 --------------------------------------------------------------------------------
 
-* 推荐： `Sumatra PDF <https://www.sumatrapdfreader.org/free-pdf-reader>`_
+* 推荐： `SumatraPDF <https://www.sumatrapdfreader.org/free-pdf-reader>`_
 
     PDF 文件的本意在于一致性，而不是编辑，这是一款优秀的轻量阅读器
 
