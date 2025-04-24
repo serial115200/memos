@@ -6,20 +6,24 @@
 		"vscode": {
 			"settings": {},
 			"extensions": [
+				"docker.docker",
 				"eamodio.gitlens",
-				"EditorConfig.EditorConfig",
+				"lextudio.restructuredtext",
 				"ms-azuretools.vscode-docker",
+				"ms-ceintl.vscode-language-pack-zh-hans",
+				"ms-python.debugpy",
 				"ms-python.python",
 				"ms-python.vscode-pylance",
-				"swyddfa.esbonio",
-				"lextudio.restructuredtext",
+				"ms-vscode.cmake-tools",
+				"ms-vscode.cpptools",
+				"ms-vscode.cpptools-extension-pack",
+				"ms-vscode.cpptools-themes",
 				"ms-vscode.makefile-tools",
-				"ritwickdey.LiveServer",
+				"ritwickdey.liveserver",
 				"timonwong.shellcheck",
-				"tintinweb.graphviz-interactive-preview",
+				"tomoki1207.selectline-statusbar",
 				"trond-snekvik.simple-rst",
-				"twxs.cmake",
-				"zenghongtu.vscode-asciiflow2"
+				"twxs.cmake"
 			]
 		}
 	},
