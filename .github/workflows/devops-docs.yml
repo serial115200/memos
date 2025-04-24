@@ -3,11 +3,15 @@ name: Build and Deploy Documentation
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'source/**'
+      - '.github/workflows/devops-docs.yml'
   workflow_dispatch:
 
 permissions:
   contents: write
   pages: write
+  id-token: write
 
 concurrency:
   group: "pages"
