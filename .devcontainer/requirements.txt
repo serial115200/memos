@@ -2,7 +2,7 @@ Sphinx==8.2.3
 Pillow
 doc8
 rstcheck
-rst-lint
+#rst-lint
 esbonio
 docutils
 sphinx-prompt
