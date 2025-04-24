@@ -20,39 +20,41 @@
     tools/image/proot
 
 .. toctree::
-    :caption: 调试与分析
+    :caption: 调试分析
     :maxdepth: 1
 
     debug/debug
     sniffer/sniffer
 
 .. toctree::
-    :caption: 构建与 OpenWRT
+    :caption: 构建笔记
     :maxdepth: 1
 
     build_system/build_system
-    openwrt/openwrt
+    build_system/openwrt/openwrt
+
+.. toctree::
+    :caption: 读书笔记
+    :maxdepth: 1
+
+    book/apue/apue
+    book/ldd/ldd
+    book/crypto/crypto
 
 .. toctree::
     :caption: 参考笔记
     :maxdepth: 1
 
-    apue/apue
-    ldd/ldd
-    crypto/crypto
     lang_c/lang_c
     netlink/netlink
     git/git
     github/github
     shell/shell
     ssh/ssh
-
     tools/tools
     wifi/wifi
     time/time
     network/network
-
-
 
 
 Indices and tables

@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json.
 {
 	"name": "Sphinx",
-	"image": "ghcr.io/serial115200/serial115200/memos/devcontainer_sphinx:85ed1c805bf0952bd965741c27b66669d756a184",
+	"image": "ghcr.io/serial115200/memos/devcontainer_sphinx:56e769630857e002bd8a2903bb7dbf560cece09c",
 	"customizations": {
 		"vscode": {
 			"settings": {},

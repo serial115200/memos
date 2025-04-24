@@ -15,4 +15,5 @@
     "liveServer.settings.fullReload": true,
     "liveServer.settings.root": "/build/html",
     "makefile.configureOnOpen": false,
+    "restructuredtext.linter.doc8.executablePath": "/usr/local/bin/doc8",
 }
