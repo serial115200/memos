@@ -1,6 +1,4 @@
-Sphinx 主题
+Sphinx 杂项
 ================================================================================
 
-Sphinx 主题存在汇总网站：
-
-    https://sphinx-themes.org
+https://github.com/yoloseem/awesome-sphinxdoc

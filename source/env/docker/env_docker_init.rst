@@ -1,4 +1,4 @@
-Docker （Ubuntu）开发环境
+Docker (Ubuntu) 开发环境
 ================================================================================
 
 https://docs.docker.com/engine/install/ubuntu
@@ -17,7 +17,7 @@ Docker 镜像的特点对嵌入式开发环境而言，堪称完美：
 
 * 不可变：编译环境统一，稳定
 * 可分发：内部迁移方便，对外提供环境也方便
-* 档案化：docker 镜像基于 Dockerfile，依赖关系清晰，还可做版本控制
+* 档案化： Docker 镜像基于 Dockerfile， 依赖关系清晰，还可做版本控制
 
 :download:`docker_env.bash <env_docker.bash>`
 
@@ -38,15 +38,15 @@ Docker 镜像的特点对嵌入式开发环境而言，堪称完美：
     * 12 行，指定镜像，并启动 bash
 
 为什么要这么做，当用户主目录挂在到容器工作目录后，容器和主机对用户主目录均有读写权限，但
-此时容器默认以 root 用户运行，这导致编译过程产生的文件属于 root，主机读取时需要修改权限
+此时容器默认以 root 用户运行，这导致编译过程产生的文件属于 root， 主机读取时需要修改权限
 ，切换其它任意用户都存在这样的问题。该方案直接映射用户和目录，并以当前用户登录。
 
 
 Visual Studio Code Dev Containers
 --------------------------------------------------------------------------------
 
-这是上一个方案的加强版，将工作目录映射到容器内，VScode 再远程到容器内。整个过程由
+这是上一个方案的加强版， 将工作目录映射到容器内， VScode 再远程到容器内。整个过程由
 Visual Studio Code Dev Containers 插件实现，参数和配置由工作目录下的
 .devcontainer/devcontainer.json 文件决定。
 
-本节技术细节参考：https://code.visualstudio.com/docs/devcontainers/containers
+本节技术细节参考： https://code.visualstudio.com/docs/devcontainers/containers

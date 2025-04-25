@@ -1,11 +1,11 @@
 Sphinx==8.2.3
 Pillow
+sphinx-autobuild
 doc8
 rstcheck
 #rst-lint
 esbonio
 docutils
-sphinx-prompt
 sphinx-copybutton
 sphinx-notfound-page
 sphinxnotes-strike
@@ -13,4 +13,3 @@ sphinx-cjkspace
 sphinxcontrib-mermaid
 sphinxcontrib-kroki
 sphinx-rtd-theme
-sphinx-autobuild

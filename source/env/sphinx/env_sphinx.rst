@@ -1,16 +1,12 @@
 
-Sphinx 手册
+Sphinx 笔记
 ================================================================================
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
-    extensions
-    theme
-
-- https://github.com/yoloseem/awesome-sphinxdoc
-	A curated list of awesome tools for Sphinx Python Documentation Generator
-
-# 环境
-
-https://github.com/sphinx-doc/sphinx-docker-images
+    env_sphinx_history
+    env_sphinx_extensions
+    env_sphinx_theme
+    env_sphinx_vscode
+    env_sphinx_misc

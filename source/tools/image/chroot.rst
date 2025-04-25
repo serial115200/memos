@@ -19,6 +19,14 @@ chroot
 
 .. code-block::
 
+    sudo mount -t proc  /proc alpine-linux-x86-64/proc
+    sudo mount -t sysfs /sys  alpine-linux-x86-64/sys
+    sudo mount -t tmpfs tmpfs alpine-linux-x86-64/run
+    sudo mount --rbind  /dev  alpine-linux-x86-64/dev
+
+
+.. code-block::
+
     sudo chroot alpine-linux-x86-64 apk update
     sudo chroot alpine-linux-x86-64 apk add bash
     sudo chroot alpine-linux-x86-64 bash

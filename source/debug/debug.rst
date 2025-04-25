@@ -4,7 +4,7 @@
     :maxdepth: 1
 
     gdb/gdb
-    tools/debug_tools_strace
+    tools/strace/strace
 
 
 软件调试

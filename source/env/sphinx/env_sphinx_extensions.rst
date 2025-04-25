@@ -1,4 +1,4 @@
-Sphinx 扩展
+Sphinx 扩展汇总
 ================================================================================
 
 
@@ -9,8 +9,6 @@ Sphinx 扩展
 
   Watch a Sphinx directory and rebuild the documentation when a change is
   detected. Also includes a hot-reload web server.
-
-  由于个人使用 vscode 及其容器开发环境，因此暂未使用。
 
 
 代码
@@ -41,16 +39,6 @@ Tab
   Add inline tabbed content to your Sphinx documentation.
 
   功能同 `sphinx-tabs`，样式存在差异
-
-
-GitHUB
---------------------------------------------------------------------------------
-
-* 待定 `sphinx-issues <https://github.com/sloria/sphinx-issues>`_
-
-  A Sphinx extension for linking to your project's issue tracker
-
-  该扩展有待改进
 
 
 Web
@@ -105,14 +93,13 @@ Web
 
 * 推荐 `sphinx-hoverxref <https://github.com/readthedocs/sphinx-hoverxref>`_
 
-  Sphinx extension to show tooltips with content embedded when hover a reference.
+    Sphinx extension to show tooltips with content embedded when hover a reference.
 
 * 推荐 `sphinx-togglebutton <https://github.com/executablebooks/sphinx-togglebutton>`_
 
   Show and hide content with a button in Sphinx
 
 
-* https://github.com/melissawm/sphinx-tags
 * https://github.com/modelmat/sphinxcontrib-drawio
 * https://github.com/humitos/sphinx-version-warning
 * https://github.com/coldfix/sphinx-code-tabs
