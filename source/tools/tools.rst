@@ -8,14 +8,6 @@
     screen
 
 .. toctree::
-    :caption: 镜像工具
-    :maxdepth: 1
-
-    image/chroot
-    image/proot
-
-
-.. toctree::
     :maxdepth: 1
     :caption: 网络操作
 

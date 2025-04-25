@@ -11,13 +11,9 @@
 
 .. toctree::
     :caption: 隔离与虚拟化
-    :maxdepth: 1
+    :maxdepth: 2
 
-    1_isolation/docker/docker
-    1_isolation/namespace/namespace
-    1_isolation/qemu/qemu
-    tools/image/chroot
-    tools/image/proot
+    1_isolation/1_isolation
 
 .. toctree::
     :caption: 调试分析

@@ -4,4 +4,4 @@ VsCode 笔记
 .. toctree::
     :maxdepth: 1
 
-    vscode_ext
+    env_vscode_ext

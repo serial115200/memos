@@ -10,7 +10,7 @@ OpenWRT 手册
     ubox/ubox
     dnsmasq/dnsmasq
     libubox/libubox
-
+    qemu
     modules
 
 * openwrt on qemu

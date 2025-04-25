@@ -15,16 +15,8 @@ C 语言
     lang_c_union
     lang_c_hook
 
-
-Clang Static Analyzer
-https://cppcheck.sourceforge.io/
-
-
-
-- https://github.com/antirez/linenoise
-        命令行库
-- https://github.com/argtable/argtable3
-        参数解析库
+    lang_c_lib
+    lang_c_tools
 
 技巧
 --------------------------------------------------------------------------------
@@ -41,13 +33,6 @@ https://cppcheck.sourceforge.io/
     #ifdef SOCK_CLOEXEC
         flags = SOCK_CLOEXEC;
     #endif
-
-
-#. 格式化
-
-vscode 环境已经集成，格式参考一下链接
-
-https://clang.llvm.org/docs/ClangFormat.html
 
 
 #. 开启编译警告
