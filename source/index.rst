@@ -26,8 +26,8 @@
     :caption: 构建笔记
     :maxdepth: 1
 
-    build_system/build_system
-    build_system/openwrt/openwrt
+    BuildInfra/BuildInfra
+    BuildInfra/openwrt/openwrt
 
 .. toctree::
     :caption: 读书笔记

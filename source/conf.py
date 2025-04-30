@@ -16,6 +16,7 @@ author = 'Pan Chen'
 extensions = [
     'sphinx_rtd_theme',
     'sphinx_copybutton',
+    'sphinx.ext.duration',
     'sphinx_cjkspace.cjkspace',
 ]
 

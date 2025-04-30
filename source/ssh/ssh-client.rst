@@ -45,7 +45,7 @@ SSH 客户端 - 远程访问
 
 如果登录中断，并出现如下提示，则表明了主机指纹发生变更。
 
-.. code-block:: none
+.. code-block:: shell
 
     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
@@ -63,7 +63,7 @@ SSH 客户端 - 远程访问
 
 此时，我们可以使用以下命令删除保存的主机信息，然后重新进行连接。
 
-.. prompt:: bash
+.. code-block:: bash
 
     ssh-keygen -R 10.0.0.1
 
@@ -77,7 +77,7 @@ SSH 客户端 - 远程访问
 
 * 命令行参数
 
-    .. prompt:: bash
+    .. code-block:: bash
 
         ssh dummy@10.0.0.1 -p 2222
 
@@ -111,7 +111,7 @@ SSH 配置选项繁多，此处只说明常见的选项，其余的选项做如�
 
 指定端口
 
-    .. prompt:: bash
+    .. code-block:: bash
 
         ssh dummy@10.0.0.1 -p 2222
 
@@ -119,7 +119,7 @@ SSH 配置选项繁多，此处只说明常见的选项，其余的选项做如�
 
 静默模式
 
-    .. prompt:: bash
+    .. code-block:: bash
 
         ssh dummy@10.0.0.1 -q
 
@@ -127,7 +127,7 @@ SSH 配置选项繁多，此处只说明常见的选项，其余的选项做如�
 
 调试信息
 
-    .. prompt:: bash
+    .. code-block:: bash
 
         ssh dummy@10.0.0.1 -v
 
@@ -138,7 +138,7 @@ SSH 配置选项繁多，此处只说明常见的选项，其余的选项做如�
 
 首先使用以下命令创建配置文件，目录与文件的权限要求见附录::doc:`ssh-permissions`
 
-.. prompt:: bash
+.. code-block:: bash
 
     mkdir -m 700 -p ~/.ssh && (umask 077 && touch ~/.ssh/config)
 
@@ -168,13 +168,13 @@ SSH 配置选项繁多，此处只说明常见的选项，其余的选项做如�
 
 在完成配置文件后，可以使用以下命令直接连接:
 
-.. prompt:: bash
+.. code-block:: bash
 
     ssh compile_cc
 
 在输入 *ssh* 后，可以使用 *TAB* 键进行显示与补全，与文件名补全相似。
 
-.. prompt:: text
+.. code-block:: text
 
     ssh
     10.0.0.1        compile_cc          publish_cc

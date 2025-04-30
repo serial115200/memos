@@ -9,8 +9,8 @@ FAQ
 
 #.  Bitfield 在结构体中的 bit 顺序
 
-  C standard: The order of allocation of bit-fields within a unit (high-order to
-  low-order or low-order to high-order) is implementation-defined.
+  C standard: The order of allocation of bit-fields within a unit (high-order
+  to low-order or low-order to high-order) is implementation-defined.
 
   因此位操作和位域操作并不等价，如将第 0 个 bit 置 1，对应的位域可能是最后一个符号。这
   也意味着要求比特序的操作不能简单使用位域，如网络传输中的 tcp 结构。

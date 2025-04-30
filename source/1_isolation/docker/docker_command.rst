@@ -7,7 +7,7 @@ Docker 常用命令与实践经验
 
 --------------------------------------------------
 
-.. prompt:: bash
+.. code-block:: bash
 
     sudo usermod -aG docker $(id -un)
 
@@ -28,20 +28,20 @@ Docker 常用命令与实践经验
 
 删除镜像
 
-.. prompt:: bash
+.. code-block:: bash
 
     docker image rm <image tag or hash>
 
 删除虚悬镜像
 
-.. prompt:: bash
+.. code-block:: bash
 
     docker image pure
 
 容器管理
 --------------------------------------------------
 
-.. prompt:: bash
+.. code-block:: bash
 
     docker pull ubuntu
 
@@ -60,7 +60,7 @@ Docker 常用命令与实践经验
 
 通常
 
-.. prompt:: bash
+.. code-block:: bash
 
     docker login [docker server url]
     docker login -u username -p password [docker server url]
@@ -68,7 +68,7 @@ Docker 常用命令与实践经验
 
 在自动化流程中指定密码可能导致密码泄露
 
-.. prompt:: bash
+.. code-block:: bash
 
     docker login --username foo --password-stdin < ~/password.txt
     echo ${password} | docker login -u username --password-stdin

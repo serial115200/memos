@@ -7,25 +7,25 @@ SSH 服务端
 
 CentOS/Fedora 等发行版:
 
-.. prompt:: bash
+.. code-block:: bash
 
     sudo yum -y install openssh-server
 
 Ubuntu/Debian 等发行版:
 
-.. prompt:: bash
+.. code-block:: bash
 
     sudo apt -y install openssh-server
 
 SSHD 未找到显示版本的命令，直接输入错误选项测试:
 
-.. prompt:: bash
+.. code-block:: bash
 
     sshd -v
 
 命令输出:
 
-.. prompt:: text
+.. code-block:: text
 
     unknown option -- v
     OpenSSH_8.2p1 Ubuntu-4ubuntu0.3, OpenSSL 1.1.1f  31 Mar 2020
@@ -41,7 +41,7 @@ SSHD 未找到显示版本的命令，直接输入错误选项测试:
 
 运行管理
 
-.. prompt:: bash
+.. code-block:: bash
 
     systemctl start   sshd
     systemctl restart sshd
@@ -51,7 +51,7 @@ SSHD 未找到显示版本的命令，直接输入错误选项测试:
 
 开机启动
 
-.. prompt:: bash
+.. code-block:: bash
 
     systemctl is-active sshd
     systemctl enable    sshd

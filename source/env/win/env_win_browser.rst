@@ -11,6 +11,14 @@
 
   篡改猴
 
+* https://www.editthiscookie.com/
+
+  Cookie 管理器
+
+* https://www.i-dont-care-about-cookies.eu/
+
+  I don't care about cookies
+
 * https://github.com/iorate/ublacklist
 
   Blocks specific sites from appearing in Google search results

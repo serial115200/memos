@@ -99,8 +99,9 @@ Web
 
   Show and hide content with a button in Sphinx
 
+* 推荐 https://github.com/ulrobix/sphinxcontrib-contentui
 
-* https://github.com/modelmat/sphinxcontrib-drawio
+
 * https://github.com/humitos/sphinx-version-warning
 * https://github.com/coldfix/sphinx-code-tabs
 * https://github.com/click-contrib/sphinx-click
@@ -110,5 +111,3 @@ Web
 * https://github.com/executablebooks/sphinx-design
 * https://github.com/sphinx-toolbox/sphinx-toolbox
 * https://github.com/sphinx-contrib/kroki
-* https://github.com/ulrobix/sphinxcontrib-contentui
-* https://github.com/ammaraskar/sphinx-action

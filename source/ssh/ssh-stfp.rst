@@ -9,7 +9,7 @@ sftp 就是用 ssh 隧道承载 ftp 数据，因此操作方式与 ftp 基本一
 
 使用交互方式登录远程主机:
 
-.. prompt:: bash
+.. code-block:: bash
 
     sftp dummy@10.0.0.1
 
@@ -23,7 +23,7 @@ sftp 就是用 ssh 隧道承载 ftp 数据，因此操作方式与 ftp 基本一
         Port 3333
         IdentityFile ~/.ssh/dummy
 
-.. prompt:: bash
+.. code-block:: bash
 
     sftp dummy
 
@@ -73,27 +73,27 @@ sftp 就是用 ssh 隧道承载 ftp 数据，因此操作方式与 ftp 基本一
 
 上传文件或目录
 
-.. prompt:: bash >
+.. code-block:: bash
 
     put file
     put -R dir
 
 下载文件或目录
 
-.. prompt:: bash >
+.. code-block:: bash
 
     get file
     get -R dir
 
 本地命令带有 l 前缀，远程命令不带
 
-.. prompt:: bash >
+.. code-block:: bash
 
     lls
     lcd path
     lpwd
 
-.. prompt:: bash >
+.. code-block:: bash
 
     ls
     cd path
@@ -101,6 +101,6 @@ sftp 就是用 ssh 隧道承载 ftp 数据，因此操作方式与 ftp 基本一
 
 退出
 
-.. prompt:: bash >
+.. code-block:: bash
 
     bye
