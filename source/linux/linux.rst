@@ -1,10 +1,7 @@
-iw 命令
+Linux 笔记
 ================================================================================
 
-.. toctree::
+.. toctree:: 1
     :maxdepth: 1
 
-    iw_commands
-    iw_reg
-    iw_monitor
-    iw_misc
+    linux_file_permissions

@@ -13,7 +13,7 @@
     :caption: 隔离与虚拟化
     :maxdepth: 2
 
-    1_isolation/1_isolation
+    VirtStack/VirtStack
 
 .. toctree::
     :caption: 调试分析
@@ -41,6 +41,7 @@
     :caption: 参考笔记
     :maxdepth: 1
 
+    linux/linux
     lang_c/lang_c
     netlink/netlink
     git/git

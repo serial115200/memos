@@ -12,7 +12,7 @@ Tcpdump
     sudo tcpdump -i enp2s0 -U -w - | tee test.pcap | tcpdump -r -
 
 
-远程抓包(遗弃，wireshark 自带 sshdump)
+远程抓包
 --------------------------------------------------------------------------------
 
 .. code-block::

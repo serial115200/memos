@@ -1,21 +1,21 @@
-抓包手册
+抓包笔记
 ================================================================================
 
-本文将说明抓包的原理、实现和技巧，并对 Wi-Fi 抓包进行侧重说明。
+本文将阐述抓包的原理、实现和技巧，并对 Wi-Fi 抓包进行侧重说明。
+
 
 .. toctree::
     :maxdepth: 1
 
+    sniffer_intro
+    sniffer_tcpdump
+    sniffer_wireshark
+    sniffer_hub_switch
+    sniffer_80211
     ax2xx
     tcpdump
     permission
-    dcrypt80211
 
-..  sniffer_network
-..  sniffer_tcpdump
-..  sniffer_wireshark
-..  sniffer_hub_switch
-..  sniffer_wireless
 
 
 参考资料
@@ -38,16 +38,6 @@
   https://en.wikipedia.org/wiki/Operation_Ivy_Bells
 
 
-抓包抓的是什么
---------------------------------------------------------------------------------
-
-让我们化繁为简，以手电筒发送摩尔斯电码为例，当你向对面发送 SOS 时，张三和李四也看到信号，
-但只有张三了解摩尔斯电码，因此李四抓取了信号，张三完成了抓包。
-
-从上述例子可以看出，抓包需要两部分，
-
-
-
 
 网络抓包实现
 --------------------------------------------------------------------------------
@@ -56,13 +46,6 @@
 tcpdump 使用
 --------------------------------------------------------------------------------
 
-
-sudo su
-groupadd pcap
-usermod -a -G pcap $USER
-chgrp pcap /usr/sbin/tcpdump
-chmod 750 /usr/sbin/tcpdump
-setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump
 
 wireshark 使用
 --------------------------------------------------------------------------------

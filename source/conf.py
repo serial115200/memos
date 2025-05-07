@@ -16,8 +16,12 @@ author = 'Pan Chen'
 extensions = [
     'sphinx_rtd_theme',
     'sphinx_copybutton',
-    'sphinx.ext.duration',
     'sphinx_cjkspace.cjkspace',
+    'sphinx.ext.duration',
+    'sphinx.ext.viewcode',
+    'sphinx.ext.autodoc',
+    'sphinx.ext.autosummary',
+    'sphinx.ext.napoleon',
 ]
 
 templates_path = ['_templates']
@@ -29,7 +33,7 @@ language = 'zh_CN'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = "sphinx_rtd_theme"
-#html_static_path = ['_static']
+html_static_path = ['_static']
 
 # 添加构建时间
 html_last_updated_fmt = '%Y-%m-%d %H:%M:%S'
@@ -38,6 +42,12 @@ html_show_copyright = False
 
 copybutton_prompt_text = "~$ "
 
+
+# 自动生成模块摘要页面
+autosummary_generate = True
+# 包含导入的成员
+autosummary_imported_members = True
+
 # https://github.com/numpy/numpydoc/issues/69
-numpydoc_show_class_members = False
-class_members_toctree = False
+#numpydoc_show_class_members = False
+#class_members_toctree = False
