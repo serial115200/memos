@@ -1,4 +1,4 @@
-Cmake 临时笔记
+CMake 临时笔记
 ================================================================================
 
 https://www.incredibuild.cn/blog/modern-cmake-tips-and-tricks-2

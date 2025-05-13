@@ -17,11 +17,9 @@ extensions = [
     'sphinx_rtd_theme',
     'sphinx_copybutton',
     'sphinx_cjkspace.cjkspace',
+    'sphinx.ext.todo',
     'sphinx.ext.duration',
     'sphinx.ext.viewcode',
-    'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
-    'sphinx.ext.napoleon',
 ]
 
 templates_path = ['_templates']
@@ -42,11 +40,8 @@ html_show_copyright = False
 
 copybutton_prompt_text = "~$ "
 
-
-# 自动生成模块摘要页面
-autosummary_generate = True
-# 包含导入的成员
-autosummary_imported_members = True
+todo_include_todos = True
+todo_emit_warnings = False
 
 # https://github.com/numpy/numpydoc/issues/69
 #numpydoc_show_class_members = False

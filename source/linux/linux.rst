@@ -1,7 +1,7 @@
 Linux 笔记
 ================================================================================
 
-.. toctree:: 1
+.. toctree::
     :maxdepth: 1
 
-    linux_file_permissions
+    linux_permissions/linux_permissions

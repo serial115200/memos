@@ -27,7 +27,6 @@
     :maxdepth: 1
 
     BuildInfra/BuildInfra
-    BuildInfra/openwrt/openwrt
 
 .. toctree::
     :caption: 读书笔记
@@ -42,6 +41,7 @@
     :maxdepth: 1
 
     linux/linux
+    rtos/rtos
     lang_c/lang_c
     netlink/netlink
     git/git
@@ -53,10 +53,16 @@
     time/time
     network/network
 
+.. toctree::
+    :caption: 文档构建
 
-Indices and tables
-==================
+    todo
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+
+
+.. Indices and tables
+.. ==================
+..
+.. * :ref:`genindex`
+.. * :ref:`modindex`
+.. * :ref:`search`

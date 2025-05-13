@@ -1,13 +1,15 @@
-构建系统
-================================================================================
+.. 构建笔记
+.. ================================================================================
 
-* GCC
-* Makefile
-* Cmake
-* OpenWRT
+.. * GCC
+.. * Makefile
+.. * Cmake
+.. * OpenWRT
 
 .. toctree::
     :maxdepth: 1
 
-    gcc
+    gcc/gcc
+    makefile/makefile
     cmake/cmake
+    openwrt/openwrt

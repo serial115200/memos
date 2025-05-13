@@ -22,7 +22,8 @@
 				"timonwong.shellcheck",
 				"tomoki1207.selectline-statusbar",
 				"trond-snekvik.simple-rst",
-				"github.vscode-github-actions"
+				"github.vscode-github-actions",
+				"augment.vscode-augment"
 			]
 		}
 	},
