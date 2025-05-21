@@ -20,6 +20,7 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.duration',
     'sphinx.ext.viewcode',
+    'sphinx.ext.graphviz',
 ]
 
 templates_path = ['_templates']

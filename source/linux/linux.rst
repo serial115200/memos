@@ -5,3 +5,4 @@ Linux 笔记
     :maxdepth: 1
 
     linux_permissions/linux_permissions
+    linux_interface/linux_interface

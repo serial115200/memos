@@ -1,5 +1,7 @@
-用户、文件、权限笔记
+用户、文件和权限
 ================================================================================
+
+
 
 本文将包含以下内容：
 
@@ -9,7 +11,7 @@
 * 文件权限和管理
   * 文件权限
   * SUID/SGID/sticky
-* sudo 机制
+* sudo 和 su 机制
 * Capabilities 机制
 * seccomp 机制
 
@@ -18,3 +20,5 @@
 
     linux_perm_user
     linux_perm_file
+    linux_perm_cap
+    linux_perm_seccomp
