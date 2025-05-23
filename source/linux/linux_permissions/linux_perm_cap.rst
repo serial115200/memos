@@ -1,8 +1,6 @@
 Capabilities 篇
 ================================================================================
 
-Capabilities 
-
 .. code-block:: shell
 
     ~$ ls -al $(which ping)

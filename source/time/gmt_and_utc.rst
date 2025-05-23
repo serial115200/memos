@@ -1,6 +1,9 @@
 The Difference Between GMT and UTC
 ================================================================================
 
+* https://www.timeanddate.com/time/gmt-utc-time.html
+* https://www.worldtimeserver.com/learn/utc-vs-gmt/
+
 Greenwich Mean Time (GMT) is often interchanged or confused with Coordinated
 Universal Time (UTC). But GMT is a time zone and UTC is a time standard.
 
