@@ -20,5 +20,8 @@
         "rstcheck",
         "rst-lint"
     ],
+    "files.exclude": {
+        "**/__pycache__": true,
+    }
     //"restructuredtext.linter.doc8.executablePath": "/usr/local/bin/doc8",
 }

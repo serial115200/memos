@@ -1,1 +1,3 @@
 build/**
+source/_tags/**
+__pycache__/

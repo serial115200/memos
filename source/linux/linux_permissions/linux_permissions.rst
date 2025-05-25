@@ -18,5 +18,6 @@
 
     linux_perm_user
     linux_perm_file
+    linux_perm_sudo
     linux_perm_cap
     linux_perm_seccomp

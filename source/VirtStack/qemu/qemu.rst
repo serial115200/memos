@@ -8,8 +8,9 @@ QEMU 笔记
     qemu_install
     qemu_user_mode
     qemu_system_mode
-    qemu_network
-    qemu_filesystem
+
+
+
 
 
 参考资料：
