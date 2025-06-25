@@ -8,3 +8,7 @@ C 工具汇总
 * vscode 环境已经集成，格式参考一下链接
 
     https://clang.llvm.org/docs/ClangFormat.html
+
+* c lint
+
+    https://github.com/oclint/oclint

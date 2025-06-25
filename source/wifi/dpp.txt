@@ -1,0 +1,42 @@
+sudo killall hostapd
+sudo killall wpa_supplicant
+
+sudo ./hostapd -B -ddd -f hostapd.log dpp_ap.conf
+sudo ./wpa_supplicant -B -ddd -f dpp_sta.log -i wlan1 -c dpp_sta.conf
+sudo ./wpa_supplicant -B -ddd -f dpp_phone.log -i wlan2 -c dpp_phone.conf
+
+
+sudo ./hostapd_cli -i wlan0 status
+sudo ./wpa_cli -i wlan1 status
+sudo ./wpa_cli -i wlan2 status
+
+sudo ./hostapd_cli -i wlan0 dpp_bootstrap_gen type=qrcode chan=81/1
+sudo ./hostapd_cli -i wlan0 dpp_bootstrap_get_uri 1
+ap_url=$(sudo ./hostapd_cli -i wlan0 dpp_bootstrap_get_uri 1)
+sudo ./hostapd_cli -i wlan0 dpp_listen 2412
+
+
+
+sudo ./wpa_cli -i wlan1 dpp_bootstrap_gen type=qrcode chan=81/1
+sudo ./wpa_cli -i wlan1 dpp_bootstrap_get_uri 1
+sta_url=$(sudo ./wpa_cli -i wlan1 dpp_bootstrap_get_uri 1)
+sudo ./wpa_cli -i wlan1 dpp_listen 2412
+
+DPP:C:81/1;V:2;K:MDkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDIgADo9pPn+xlpXK/y9L0IIGiHzdo1EYNWWaRLcyTgLJq7C4=;;
+
+sudo ./wpa_cli -i wlan2 dpp_configurator_add
+sudo ./wpa_cli -i wlan2 dpp_qr_code "$ap_url"
+sudo ./wpa_cli -i wlan2 dpp_qr_code "$sta_url"
+
+
+sudo ./wpa_cli -i wlan2 dpp_auth_init peer=1 conf=ap-dpp ssid=6470705f74657374 configurator=1
+sudo ./wpa_cli -i wlan2 dpp_auth_init peer=2 conf=sta-dpp ssid=6470705f74657374 configurator=1
+
+sudo ./wpa_cli -i wlan2 dpp_auth_init peer=1 conf=ap-dpp ssid=74657374 configurator=1
+sudo ./wpa_cli -i wlan2 dpp_auth_init peer=2 conf=sta-dpp ssid=74657374 configurator=1
+
+sudo ./wpa_cli -i wlan2 dpp_configurator_sign conf=sta-dpp ssid=74657374 configurator=1
+
+sudo ./hostapd_cli -i wlan0 set dpp_connector
+sudo ./hostapd_cli -i wlan0 set dpp_csign
+sudo ./hostapd_cli -i wlan0 set dpp_netaccesskey

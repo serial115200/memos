@@ -14,3 +14,4 @@ sphinxcontrib-mermaid
 sphinxcontrib-kroki
 sphinx-rtd-theme
 sphinx-tags
+sphinx-tabs

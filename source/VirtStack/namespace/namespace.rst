@@ -6,3 +6,5 @@ namespace
 
     ip_netns
     ip_netns_and_unshare
+
+    ns_unshare
