@@ -11,7 +11,7 @@
 
 .. toctree::
     :caption: 隔离与虚拟化
-    :maxdepth: 2
+    :maxdepth: 1
 
     VirtStack/VirtStack
 

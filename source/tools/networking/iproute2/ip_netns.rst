@@ -33,26 +33,14 @@ ip netns 命令
 
 .. code-block::
 
+    ip netns add ns1
+
     # ip netns exec <NAME> <command>
+    ip netns exec ns1 bash
+    ip netns exec ns1 ip
 
 
-在指定命名空间内执行命令。例如在 `testns` 中运行 `bash`：
-
-.. code-block::
-
-ip netns exec testns bash
-
-
-也可以执行网络配置命令：
-
-.. code-block::
-
-ip netns exec testns ip a
-
-
----
-
-### 5. 将已有进程附加到网络命名空间
+进程附加到网络命名空间
 
 .. code-block::
 
