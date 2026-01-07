@@ -1,4 +1,4 @@
-tags_create_tags = True
+tags_create_tags = False
 # tags_create_badges = True
 # tags_output_dir = "_tags"
 tags_intro_text = "Tags in this page:"

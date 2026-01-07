@@ -4,12 +4,19 @@ pushd %~dp0
 
 REM Command file for Sphinx documentation
 
-if "%SPHINXBUILD%" == "" (
+REM Check if venv exists and use it if available
+if exist "venv\Scripts\sphinx-build.exe" (
+	set SPHINXBUILD=venv\Scripts\sphinx-build.exe
+	set SPHINXAUTOBUILD=venv\Scripts\sphinx-autobuild.exe
+) else if "%SPHINXBUILD%" == "" (
 	set SPHINXBUILD=sphinx-build
+	set SPHINXAUTOBUILD=sphinx-autobuild
 )
+
 set SOURCEDIR=source
 set BUILDDIR=build
 
+REM Check if sphinx-build is available
 %SPHINXBUILD% >NUL 2>NUL
 if errorlevel 9009 (
 	echo.
@@ -20,12 +27,31 @@ if errorlevel 9009 (
 	echo.
 	echo.If you don't have Sphinx installed, grab it from
 	echo.https://www.sphinx-doc.org/
+	echo.
+	echo.Or run setup_venv.bat to create a Python virtual environment.
 	exit /b 1
 )
 
 if "%1" == "" goto help
+if "%1" == "livehtml" goto livehtml
 
 %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+goto end
+
+:livehtml
+REM Check if sphinx-autobuild is available
+%SPHINXAUTOBUILD% >NUL 2>NUL
+if errorlevel 9009 (
+	echo.
+	echo.The 'sphinx-autobuild' command was not found. Make sure you have
+	echo.sphinx-autobuild installed in your virtual environment.
+	echo.
+	echo.Run setup_venv.bat to install all dependencies.
+	exit /b 1
+)
+REM Note: --ignore patterns are relative to SOURCEDIR
+REM Use regex ignore to reliably ignore _tags directory and build directory
+%SPHINXAUTOBUILD% %SOURCEDIR% %BUILDDIR%\html %SPHINXOPTS% %O% --re-ignore "^_tags/.*$" --re-ignore "^.*/build/.*$"
 goto end
 
 :help

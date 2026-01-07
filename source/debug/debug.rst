@@ -1,10 +1,9 @@
 调试笔记
 ================================================================================
-.. toctree::
-    :maxdepth: 1
 
-    gdb/gdb
-    tools/strace/strace
+- :doc:`GDB <gdb/gdb>`
+- :doc:`抓包 <sniffer/sniffer>`
+- :doc:`strace <tools/strace/strace>`
 
 
 软件调试

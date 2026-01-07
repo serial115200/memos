@@ -3,10 +3,10 @@ name: Ubuntu Development Image Build and Publish
 on:
   push:
     paths:
-      - 'source/env/ubuntu/env_ubuntu.conf'
-      - 'source/env/ubuntu/env_ubuntu_20.04.conf'
-      - 'source/env/ubuntu/env_ubuntu_22.04.conf'
-      - 'source/env/ubuntu/env_ubuntu_24.04.conf'
+      - 'source/DevelopmentSetup/ubuntu/software/ubuntu.conf'
+      - 'source/DevelopmentSetup/ubuntu/software/ubuntu_20.04.conf'
+      - 'source/DevelopmentSetup/ubuntu/software/ubuntu_22.04.conf'
+      - 'source/DevelopmentSetup/ubuntu/software/ubuntu_24.04.conf'
       - '.github/workflows/devops-ubuntu-dev.yml'
   workflow_dispatch:
 
@@ -39,15 +39,15 @@ jobs:
 
       - name: Generate Dockerfile
         run: |
-          cd source/env/ubuntu
-          chmod +x env_ubuntu_gen.sh
-          ./env_ubuntu_gen.sh
+          cd source/DevelopmentSetup/ubuntu
+          chmod +x ubuntu_gen.sh
+          ./ubuntu_gen.sh
 
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: source/env/ubuntu
-          file: source/env/ubuntu/Dockerfile.ubuntu${{ matrix.ubuntu-version }}
+          context: source/DevelopmentSetup/ubuntu
+          file: source/DevelopmentSetup/ubuntu/Dockerfile.ubuntu${{ matrix.ubuntu-version }}
           push: true
           platforms: ${{ matrix.platforms }}
           tags: |
@@ -62,5 +62,5 @@ jobs:
 
       - name: Clean up generated files
         run: |
-          cd source/env/ubuntu
+          cd source/DevelopmentSetup/ubuntu
           rm Dockerfile.ubuntu* install_packages_ubuntu*.sh
