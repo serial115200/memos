@@ -13,7 +13,6 @@
     DevelopmentSetup/linux/linux
     DevelopmentSetup/vscode/vscode
     DevelopmentSetup/sphinx/sphinx
-    DevelopmentSetup/obsidian/obsidian
     DevelopmentSetup/mirrors/mirrors
 
 
@@ -50,6 +49,7 @@
     debug/gdb/gdb
     debug/sniffer/sniffer
     debug/tools/strace/strace
+    debug/ebpf
 
 
 .. toctree::

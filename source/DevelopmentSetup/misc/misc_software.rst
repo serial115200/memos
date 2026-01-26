@@ -1,7 +1,38 @@
-通用软件整理
+软件整理
 ================================================================================
 
 
+* https://github.com/ventoy/Ventoy
+
+    装机软件
+
+* https://github.com/massgravel/Microsoft-Activation-Scripts
+
+    系统激活
+
+* https://github.com/valinet/ExplorerPatcher
+
+    去除文件浏览器烦人的功能
+
+* https://github.com/the1812/Malware-Patch
+
+    拉黑证书从而避免流氓软件安装
+
+* https://github.com/AyuGram/AyuGramDesktop
+
+    Telegram 魔改版，移除转发限制，并添加新功能
+
+* https://github.com/keeweb/keeweb
+
+    密码管理器，略有不满，但没更好的选择
+
+* https://github.com/namazso/OpenHashTab
+
+    HashTab 组件，依附于属性菜单，好用，但使用需求不足
+
+* Beyond Compare 4 ： https://www.scootersoftware.com
+
+    文本比较软件
 
 AI 软件
 --------------------------------------------------------------------------------
@@ -114,6 +145,14 @@ VPN 访问
 截图与识别
 --------------------------------------------------------------------------------
 
+* 推荐: `PixPin <https://pixpin.cn/>`_
+
+    截图神器，支持截图、标注、贴图、取色、录屏、OCR 等。
+
+* 推荐: `Snipaste <https://www.snipaste.com/>`_
+
+    截图神器，但不思进取，PixPin 作者为了解决自己的痛点开发了 PixPin。
+
 * 待测: `PandaOCR.Pro <https://github.com/miaomiaosoft/PandaOCR.Pro>`_
 * 待测: `Greenshot <https://getgreenshot.org>`_
 * 待测: `Captura <https://github.com/MathewSachin/Captura>`_
@@ -144,7 +183,7 @@ PDF
 
 * 推荐： `SumatraPDF <https://www.sumatrapdfreader.org/free-pdf-reader>`_
 
-    PDF 文件的本意在于一致性，而不是编辑，这是一款优秀的轻量阅读器
+    PDF 文件的本意在于一致性，而不是编辑，这是一款不限于 PDF 的优秀轻量阅读器
 
 * 待测： https://github.com/vslavik/diff-pdf
 

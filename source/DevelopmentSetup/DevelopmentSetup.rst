@@ -7,5 +7,4 @@
 - :doc:`Linux <linux/linux>`
 - :doc:`VS Code <vscode/vscode>`
 - :doc:`Sphinx <sphinx/sphinx>`
-- :doc:`Obsidian <obsidian/obsidian>`
 - :doc:`Mirrors <mirrors/mirrors>`

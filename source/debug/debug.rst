@@ -4,6 +4,7 @@
 - :doc:`GDB <gdb/gdb>`
 - :doc:`抓包 <sniffer/sniffer>`
 - :doc:`strace <tools/strace/strace>`
+- :doc:`ebpf <ebpf>`
 
 
 软件调试
