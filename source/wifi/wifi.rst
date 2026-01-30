@@ -7,6 +7,8 @@ Wi-Fi 笔记
 
     无线通信
     mac80211_hwsim
+    channel
+    rate/ofdm
 
     hostapd
     hostapd_conf/hostapd_conf

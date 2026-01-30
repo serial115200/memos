@@ -6,5 +6,6 @@ linux 虚拟接口汇总
 
     linux_iface_bridge
     linux_iface_veth
+    linux_iface_tuntap
     linux_iface_macvlan
     linux_iface_nlmon

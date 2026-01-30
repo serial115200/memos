@@ -1,7 +1,7 @@
 veth 接口
 ================================================================================
 
-Namespace 技术带来了隔离功能，也引入了新的问题，NS 如何高效的互通和访问外网。
+Namespace 技术带来了隔离功能，也引入了新的问题：NS 如何高效地互通和访问外网。
 
 .. todo::
 
@@ -96,16 +96,17 @@ veth 和 bridge
     rtt min/avg/max/mdev = 0.042/0.046/0.051/0.004 ms
 
 
+若 ns3 与 ns4 之间 ping 不通，或后续需要访问外网，可开启转发并放行 FORWARD：
+
 .. code-block::
 
-    # ping 失败，建议添加转发
     sudo sysctl -w net.ipv4.ip_forward=1
     sudo iptables -A FORWARD -i br0 -o br0 -j ACCEPT
 
 
 .. code-block::
 
-    # 联通外网
+    # 联通外网（br0 作为网关，使用 10.1.1.1）
     sudo ip addr add 10.1.1.1/24 dev br0
 
     sudo iptables -A FORWARD -i br0 -j ACCEPT
@@ -129,10 +130,10 @@ veth 和 bridge
     rtt min/avg/max/mdev = 30.485/31.133/31.781/0.648 ms
 
 
-恢复 ns
+清理 netns 与 veth
 --------------------------------------------------------------------------------
 
-建议虚拟机操作，直接重启，或者使用以下命令
+建议在虚拟机中操作，可直接重启，或按以下顺序清理
 
 .. code-block::
 

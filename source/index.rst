@@ -74,7 +74,7 @@
     VersionControl/github/github
     ProgrammingLanguage/lang_c/lang_c
     rtos/rtos
-    wifi/wifi
+    WiFi/wifi
     time/time
     network/network
 
