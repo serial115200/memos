@@ -1,5 +1,0 @@
-# Generated Dockerfiles
-Dockerfile.ubuntu*
-
-# Generated installation scripts
-install_packages_ubuntu*.sh

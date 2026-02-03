@@ -50,8 +50,8 @@ if errorlevel 9009 (
 	exit /b 1
 )
 REM Note: --ignore patterns are relative to SOURCEDIR
-REM Use regex ignore to reliably ignore _tags directory and build directory
-%SPHINXAUTOBUILD% %SOURCEDIR% %BUILDDIR%\html %SPHINXOPTS% %O% --re-ignore "^_tags/.*$" --re-ignore "^.*/build/.*$"
+REM --host 0.0.0.0 允许局域网内其他设备访问
+%SPHINXAUTOBUILD% --host 0.0.0.0 %SOURCEDIR% %BUILDDIR%\html %SPHINXOPTS% %O%
 goto end
 
 :help

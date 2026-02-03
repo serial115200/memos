@@ -3,10 +3,7 @@ name: Ubuntu Development Image Build and Publish
 on:
   push:
     paths:
-      - 'source/DevelopmentSetup/ubuntu/software/ubuntu.conf'
-      - 'source/DevelopmentSetup/ubuntu/software/ubuntu_20.04.conf'
-      - 'source/DevelopmentSetup/ubuntu/software/ubuntu_22.04.conf'
-      - 'source/DevelopmentSetup/ubuntu/software/ubuntu_24.04.conf'
+      - 'source/DevelopmentSetup/linux/ubuntu/software/'
       - '.github/workflows/devops-ubuntu-dev.yml'
   workflow_dispatch:
 
@@ -37,17 +34,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Generate Dockerfile
-        run: |
-          cd source/DevelopmentSetup/ubuntu
-          chmod +x ubuntu_gen.sh
-          ./ubuntu_gen.sh
-
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: source/DevelopmentSetup/ubuntu
-          file: source/DevelopmentSetup/ubuntu/Dockerfile.ubuntu${{ matrix.ubuntu-version }}
+          context: source/DevelopmentSetup/linux/ubuntu
+          file: source/DevelopmentSetup/linux/ubuntu/software/Dockerfile
+          build-args: UBUNTU_VERSION=${{ matrix.ubuntu-version }}
           push: true
           platforms: ${{ matrix.platforms }}
           tags: |
@@ -59,8 +51,3 @@ jobs:
             org.opencontainers.image.version=${{ matrix.ubuntu-version }}
             org.opencontainers.image.created=${{ github.event.repository.created_at }}
             org.opencontainers.image.revision=${{ github.sha }}
-
-      - name: Clean up generated files
-        run: |
-          cd source/DevelopmentSetup/ubuntu
-          rm Dockerfile.ubuntu* install_packages_ubuntu*.sh
