@@ -14,5 +14,6 @@ done
 PACKAGES=$(echo $PACKAGES)
 [ -z "$PACKAGES" ] && { echo "No packages from config(s)." >&2; exit 1; }
 
-sudo apt-get update
-sudo apt-get install --no-install-recommends -y $PACKAGES
+# Run with root: sudo ./ubuntu_install.sh ... on host; in Docker already root
+apt-get update
+apt-get install --no-install-recommends -y $PACKAGES
