@@ -6,20 +6,26 @@ QEMU 安装
 .. code-block:: shell
 
     sudo apt update
-    sudo apt install qemu-system qemu-user qemu-utils
+    sudo apt install -y qemu-system qemu-user qemu-utils
+
 
 硬件加速
 
 .. code-block:: shell
 
-    sudo apt install qemu-kvm
+    sudo apt update
+    sudo apt install -y qemu-kvm
+
+
+图形界面， `-display sdl`
+
+.. code-block:: shell
+
+    sudo apt install -y qemu-system-gui
+
 
 网桥模块
 
 .. code-block:: shell
 
-    sudo apt install bridge-utils
-
-编译软件
-
-.. code-block:: shell
+    sudo apt install -y bridge-utils

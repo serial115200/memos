@@ -4,13 +4,10 @@ QEMU 笔记
 .. toctree::
     :maxdepth: 1
 
-    qemu_intro
     qemu_install
     qemu_user_mode
     qemu_system_mode
-
-
-
+    qemu_system_mode_run
 
 
 参考资料：

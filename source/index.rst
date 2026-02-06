@@ -6,11 +6,8 @@
     :maxdepth: 1
     :caption: 环境配置
 
-    DevelopmentSetup/DevelopmentSetup
-    DevelopmentSetup/windows/windows
-    DevelopmentSetup/ubuntu/ubuntu
-    DevelopmentSetup/docker/docker
     DevelopmentSetup/linux/linux
+    DevelopmentSetup/windows/windows
     DevelopmentSetup/vscode/vscode
     DevelopmentSetup/sphinx/sphinx
     DevelopmentSetup/mirrors/mirrors
@@ -20,7 +17,6 @@
     :maxdepth: 1
     :caption: 文档杂项
 
-    DevelopmentSetup/Misc
     DevelopmentSetup/misc/misc_software
     DevelopmentSetup/misc/misc_type
     DevelopmentSetup/misc/misc_font
@@ -77,10 +73,3 @@
     WiFi/wifi
     time/time
     network/network
-
-.. Indices and tables
-.. ==================
-..
-.. * :ref:`genindex`
-.. * :ref:`modindex`
-.. * :ref:`search`

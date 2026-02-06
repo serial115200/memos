@@ -15,6 +15,7 @@ if exist "venv\Scripts\sphinx-build.exe" (
 
 set SOURCEDIR=source
 set BUILDDIR=build
+set SPHINXOPTS=-a %SPHINXOPTS%
 
 REM Check if sphinx-build is available
 %SPHINXBUILD% >NUL 2>NUL

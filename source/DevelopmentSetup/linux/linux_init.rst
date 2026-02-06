@@ -1,16 +1,12 @@
 Linux 通用环境配置
 ================================================================================
 
-安装软件
---------------------------------------------------------------------------------
-
-
 创建用户
 --------------------------------------------------------------------------------
 
 .. code-block::
 
-    sudo adduser chen
+    sudo adduser serial115200
 
 .. code-block::
 
@@ -19,17 +15,17 @@ Linux 通用环境配置
 
 .. code-block::
 
-    sudo usermod -aG sudo chen
-    sudo usermod -aG docker chen
+    # sudo usermod -aG sudo serial115200
+    sudo usermod -aG docker serial115200
 
 
-配置 Git 用户
+配置 Git
 --------------------------------------------------------------------------------
 
 .. code-block::
 
-    git config --global user.name "Your Name"
-    git config --global user.email "your.email@address"
+    git config --global user.name "Serial115200"
+    git config --global user.email "serial115200@gmail.com"
     git config --global core.editor "vim"
 
 
@@ -38,6 +34,3 @@ Linux 通用环境配置
 .. code-block::
 
     ssh-keygen
-
-
-安装公钥

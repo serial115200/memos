@@ -37,7 +37,8 @@ exclude_patterns = []
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = "sphinx_rtd_theme"
-# html_static_path = ['_static']
+html_static_path = ['_static']
+html_js_files = ['livereload.js']
 
 # 添加构建时间
 html_last_updated_fmt = '%Y-%m-%d %H:%M:%S'
