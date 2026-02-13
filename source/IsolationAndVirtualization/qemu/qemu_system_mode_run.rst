@@ -633,36 +633,172 @@ https://jeffreytse.net/computer/2024/07/15/understanding-console-terminal-tty-sh
     -display none
     -serial mon:stdio
 
-    # 串口终端输出到当前宿主机的终端，monitor 输出到文件
-    -display none
+    # 各种形式的串口和 monitor
     -serial stdio
-    -monitor unix:/tmp/qemu.mon,server,nowait
+    -serial file:/tmp/serial.log
+    -serial unix:/tmp/serial.sock,server,nowait
+    -serial tcp:127.0.0.1:5001,server,nowait
 
-    # 串口终端输出到文件，monitor 输出到当前宿主机的终端
-    # 此时，虚拟机需要配置 ssh，以便访问
-    -display none
-    -serial file:serial.log
     -monitor stdio
+    # -monitor file:/tmp/monitor.log
+    -monitor unix:/tmp/monitor.sock,server,nowait
+    -monitor tcp:127.0.0.1:5002,server,nowait
 
-    # 串口和 monitor 都输出到 unix 套接字
-    -display none
-    -serial unix:/tmp/serial.sock,server,nowait \
-    -monitor unix:/tmp/qemu.mon,server,nowait
+组合多种多样，根据实际需求选择，但应当需要注意一下情况:
 
-    # 一号串口输出到当前宿主机的终端，二号串口和 monitor 都输出到 unix 套接字
-    -display none
-    -serial stdio \
-    -serial unix:/tmp/serial.sock,server,nowait \
-    -monitor unix:/tmp/qemu.mon,server,nowait
-
-以上各种组合都可以，根据实际需求选择。但以下情况应当避免
+- 串口和 monitor 都输出到当前宿主机的终端，这个问题已经有说明了，这里不再赘述。
 
 .. code-block:: shell
 
+    -monitor stdio
+    -serial stdio
+
+- monitor 输出到文件，这会导致无法操作，不建议使用。
+- monitor 必须配置，避免无法操作虚拟机
+- serial  通常配置一个，多个串口要手动给串口配置 shell
+
+现在我们可以使用 socat 访问虚拟机
+
+.. code-block:: shell
+
+    sudo tail -f /tmp/serial.log
+    sudo socat UNIX-CONNECT:/tmp/serial.sock STDIO,raw,echo=0,escape=0x18
+    sudo socat TCP4:127.0.0.1:5001 STDIO,raw,echo=0,escape=0x18
+
+    # monitor 同理
+    # sudo tail -f /tmp/monitor.log
+    sudo socat UNIX-CONNECT:/tmp/monitor.sock STDIO,raw,echo=0,escape=0x18
+    sudo socat TCP4:127.0.0.1:5002 STDIO,raw,echo=0,escape=0x18
+
+    # STDIO 是标准输入输出, 可以用 - 代替
+    # raw 提供信号控制，比如 ctrl+c 中断虚拟机中的进程，而不是 socat 自己中断
+    # raw 提供字符控制和缓冲行控制，比如 tab 会直接发到虚拟机，而不是空格，也不需要等回车
+    # 然后把数据发送给虚拟机，提供了实时交互功能
+    # echo=0 是关闭回显
+    # escape=0x18 ，因为 raw 接管了 ctrl+c 信号，此时就用 ctrl+x 来中断 socat
+    # 0x18 对应 ascii 码的 ctrl+x，这个键位用的最少，可能和 nano 编辑器冲突
+    # 0x1d 对应 Ctrl + ]，也是不错的选择，只是按键间距大，不能单手操作
 
 
+后台运行
+--------------------------------------------------------------------------------
 
+ `-daemonize` 可以和 `-display none` 一起使用，后台运行。当然，必须要配合上面的串口和
+ monitor 参数一起使用。
+
+
+.. code-block:: shell
+
+    qemu-system-x86_64 -daemonize -display none ...
+
+此外，这还有一个问题，后台运行往往会存在多个虚拟机，我们可以使用其他参数来确定是哪个虚拟机。
+
+.. code-block:: shell
+
+    sudo qemu-system-x86_64 \
+        -display none \
+        -daemonize \
+        -pidfile /tmp/openwrt_vm1.pid \
+        -name "OpenWrt_VM1",process="OpenWrt_VM1"
+
+- `name` 参数可以给虚拟机命名，是 qemu 使用的
+- `process` 参数可以给虚拟机进程命名，是 ps killall 等命令使用的
+- `pidfile` 参数可以给虚拟机进程写入 pid 文件，可以用于管理虚拟机进程
+
+
+.. code-block:: shell
+
+    # 在 monitor 中使用 info name 命令可以查看虚拟机名称
+    (qemu) info name
+    OpenWrt_VM1
+
+    # 在 ps 命令中使用 grep 命令可以查看虚拟机进程
+    # ef 显示启动该进程的原始二进制路径
+    # 注意 sudo 启动的父子孙三代进程
+    $ ps -ef | grep qemu
+    root       71232   70762  0 09:00 pts/4    00:00:00 sudo qemu-system-x86_64 -M q35 -cpu max -m 512M -drive file=openwrt-23.05.0-x86-64-generic-ext4-combined.img,format=raw -nographic -netdev user,id=net0 -device virtio-net-pci,netdev=net0 -name VM_NAME1,process=VM_NAME2
+    root       71233   71232  0 09:00 pts/3    00:00:00 sudo qemu-system-x86_64 -M q35 -cpu max -m 512M -drive file=openwrt-23.05.0-x86-64-generic-ext4-combined.img,format=raw -nographic -netdev user,id=net0 -device virtio-net-pci,netdev=net0 -name VM_NAME1,process=VM_NAME2
+    root       71234   71233 12 09:00 pts/3    00:00:29 qemu-system-x86_64 -M q35 -cpu max -m 512M -drive file=openwrt-23.05.0-x86-64-generic-ext4-combined.img,format=raw -nographic -netdev user,id=net0 -device virtio-net-pci,netdev=net0 -name VM_NAME1,process=VM_NAME2
+    dummy       71263   70993  0 09:04 pts/6    00:00:00 grep --color=auto qemu
+
+.. code-block:: shell
+
+    # a 显示所有进程
+    $ ps -a
+    PID TTY          TIME CMD
+     4136 tty2     00:00:00 gnome-session-b
+    70914 pts/4    00:00:00 sudo
+    70916 pts/5    00:00:45 VM_NAME2
+    71153 pts/6    00:00:00 ps
+    $ sudo killall -9 VM_NAME2
+
+.. code-block:: shell
+
+    # 使用 pidfile 文件可以找到虚拟机进程
+    sudo cat /tmp/openwrt_vm1.pid
+    71234
+
+    # 使用 pid 杀死进程
+    # 其实多数情况是放在当前目录，也就是每个目录为一个虚拟机配置
+    # 这样就可以直接 kill 当前目录下的虚拟机进程
+    # 也可以避免重复启动
+    $ kill $(cat /tmp/openwrt_vm1.pid)
+
+    if [ -f xxx/openwrt_vm.pid ]; then
+        # 杀死进程
+        # kill $(cat xxx/openwrt_vm.pid)
+        # 或退出脚本
+        #exit 1
+    fi
 
 
 配置共享目录
 --------------------------------------------------------------------------------
+
+启动参数
+
+.. code-block:: shell
+
+    mkdir -p /path/to/your/share
+    -virtfs local,path=/path/to/your/share,mount_tag=hostshare,security_model=passthrough,id=fsdev0
+
+- local： 本地目录
+- path： 本地目录路径
+- mount_tag： 共享目录在虚拟机中的挂载点
+- security_model： 安全模式，passthrough 或 mapped-xattr
+- id： 共享目录的 id
+
+文件系统的权限是一个很大的问题，这个后续会详细介绍。
+
+openwrt 文件挂载
+
+.. code-block:: shell
+
+    opkg update
+    opkg install kmod-9pnet-virtio kmod-fs-9p
+    mkdir -p /mnt/shared
+    mount -t 9p -o trans=virtio hostshare /mnt/shared
+
+此处，hostshare 是共享目录在虚拟机中的挂载点，也就是启动参数中的 mount_tag。
+
+现在面临的问题就是文件权限
+
+- 因为 qemu 不能操作网络，也就是没有 raw 和 netadmin 权限，此时我们使用sudo 权限启动。
+    - passthrough 在虚拟机创建的文件，在外部看来是 root，只读
+    - mapped-xattr 在虚拟机创建的文件，在外部看来是 root，无权限
+
+为了解决这个问题，我们可以使用以下方法：
+
+.. code-block:: shell
+
+    # 给 qemu-system-x86_64 添加 net_admin 和 net_raw 权限
+    # 此时，qemu-system-x86_64 无需 sudo 权限启动
+    sudo setcap 'cap_net_admin,cap_net_raw+ep' $(which qemu-system-x86_64)
+
+    # ifdown.sh 和 ifup.sh 内部加上 sudo 操作网络，sudo 默认关闭密码验证
+    # 这涉及 cap 能力继承，此处暂且不表
+
+    # 权限变更为 mapped-xattr
+    -virtfs local,path=/path/to/your/share,mount_tag=hostshare,security_model=mapped-xattr,id=fsdev0
+
+现在虚拟机内的文件是 root，而外部宿主机的文件是当前用户。

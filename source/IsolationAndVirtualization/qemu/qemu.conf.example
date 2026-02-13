@@ -1,0 +1,55 @@
+#===============================================================================
+# QEMU 启动配置文件示例（Shell 语法，由 run_qemu.sh source 加载）
+# 用法: run_qemu.sh [配置文件]  默认同目录 qemu.conf
+# 路径可为相对路径，基于本文件所在目录解析
+#===============================================================================
+
+# 机型（-M）、CPU（-cpu）、内存（-m）
+MACHINE=q35
+CPU=max
+MEMORY=512M
+
+#-------------------------------------------------------------------------------
+# 磁盘方式一：合一镜像
+#-------------------------------------------------------------------------------
+COMBINED_IMAGE=openwrt-qemu/openwrt-23.05.0-x86-64-generic-ext4-combined.img
+
+#-------------------------------------------------------------------------------
+# 磁盘方式二：内核 + 根文件系统（使用时常注释掉上面 COMBINED_IMAGE）
+#-------------------------------------------------------------------------------
+#KERNEL=openwrt-qemu/openwrt-23.05.0-x86-64-generic-kernel.bin
+#ROOTFS=openwrt-qemu/openwrt-23.05.0-x86-64-generic-ext4-rootfs.img
+#APPEND="root=/dev/sda console=ttyS0"
+#DRIVE_IF=virtio
+#APPEND="root=/dev/vda console=ttyS0"
+
+#-------------------------------------------------------------------------------
+# 网卡：NETDEV_N 与 DEVICE_N 成对，N 从 0 开始，按顺序对应 eth0/eth1/eth2/...
+# 三块网卡就写 NETDEV_0/DEVICE_0、NETDEV_1/DEVICE_1、NETDEV_2/DEVICE_2，依此类推
+# script/downscript 可为相对路径（相对本文件所在目录）
+#-------------------------------------------------------------------------------
+NETDEV_0="user,id=net0,hostfwd=tcp::8080-:80,hostfwd=tcp::2222-:22"
+DEVICE_0="virtio-net-pci,netdev=net0"
+
+NETDEV_1="tap,id=net1,ifname=tap0,script=ifup.sh,downscript=ifdown.sh"
+DEVICE_1="virtio-net-pci,netdev=net1"
+
+# 第三块网卡示例：再开一个 user 网段或第二个 tap
+#NETDEV_2="user,id=net2,net=192.168.11.0/24"
+#DEVICE_2="virtio-net-pci,netdev=net2"
+
+#-------------------------------------------------------------------------------
+# 无图形，串口与 monitor 到当前终端；可选后台运行
+#-------------------------------------------------------------------------------
+#DAEMONIZE=1
+
+#-------------------------------------------------------------------------------
+# 可选：命名、PID、9p 共享、额外参数
+#-------------------------------------------------------------------------------
+#NAME=OpenWrt_VM1
+#PROCESS=OpenWrt_VM1
+#PIDFILE=/tmp/openwrt_vm1.pid
+#VIRTFS_PATH=/path/to/share
+#VIRTFS_TAG=hostshare
+#VIRTFS_SECURITY=passthrough
+#EXTRA="-s -S"
